@@ -1,0 +1,38 @@
+
+  title: Automations panel
+  path: automations  
+  icon: 'mdi:cogs'
+  panel: true  
+  badges: []
+  cards:
+  - type: horizontal-stack
+    cards:
+    - type: custom:auto-entities
+      show_icon: false
+      show_header_toggle: true    
+      card:
+        type: entities
+        title: Clima  
+        icon: mdi:thermostat 
+        secondary_info: last_triggered
+      filter:
+        include:
+        - entity_id: "automation.clima_*"         
+      sort:
+        method: name 
+        reverse: false         
+    - type: custom:auto-entities
+      show_icon: false
+      show_header_toggle: true    
+      card:
+        type: entities
+        title: Luci
+        icon: mdi:lightbulb        
+      filter:
+        include:
+        - entity_id: "automation.luci_*"         
+      sort:
+        method: name 
+        reverse: false           
+      
+      

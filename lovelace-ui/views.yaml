@@ -1,0 +1,1309 @@
+  badges: []
+  cards:
+    - elements:
+      - entity: device_tracker.giuseppe
+      image: /local/peppe.jpg
+      state_filter:
+        home: drop-shadow(100px 100px 100px green)
+        not_home: grayscale(100%) blur(1px) drop-shadow(100px 100px 100px red)
+      style:
+        border-radius: 100%
+        left: 10%
+        top: 15%
+        width: 10%
+      title: Peppe
+      type: image
+      - entity: device_tracker.giusy
+      image: /local/giusy.jpg
+      state_filter:
+        home: drop-shadow(-50px 100px 50px green)
+        not_home: grayscale(100%) blur(1px) drop-shadow(-100px 100px 100px red)
+      style:
+        border-radius: 100%
+        left: 10%
+        top: 35%
+        width: 10%
+      title: Giusy
+      type: image
+      - entity: binary_sensor.motion_sensor_158d0001874bc1
+      icon: 'mdi:motion-sensor'
+      style:
+        '--iron-icon-height': 36px
+        '--iron-icon-width': 36px
+        left: 42%
+        top: 33%
+      type: state-icon
+      - entity: binary_sensor.door_window_sensor_158d0002d70614
+      icon: 'mdi:wardrobe-outline'
+      style:
+        '--iron-icon-height': 48px
+        '--iron-icon-width': 48px
+        left: 45%
+        top: 45%
+      type: state-icon
+      - entity: light.luce_nuvoletta
+      hold_action:
+        action: more-info
+      icon: 'mdi:cloud'
+      style:
+        '--iron-icon-height': 48px
+        '--iron-icon-width': 48px
+        left: 42%
+        top: 10%
+      tap_action:
+        action: toggle
+      type: state-icon
+      - entity: light.luce_cameretta
+      hold_action:
+        action: more-info
+      icon: 'mdi:ceiling-light'
+      style:
+        '--iron-icon-height': 48px
+        '--iron-icon-width': 48px
+        left: 35%
+        top: 18%
+      tap_action:
+        action: toggle
+      type: state-icon
+      - entity: light.gateway_light_7811dcb35e9d
+      icon: 'mdi:mdi:circle-slice-8'
+      hold_action:
+        action: more-info
+      style:
+        '--iron-icon-height': 36px
+        '--iron-icon-width': 36px
+        left: 62%
+        top: 42%
+      tap_action:
+        action: toggle
+      type: state-icon
+      - entity: light.luce_divano_2
+      hold_action:
+        action: more-info
+      style:
+        '--iron-icon-height': 48px
+        '--iron-icon-width': 48px
+        left: 72%
+        top: 42%
+      tap_action:
+        action: toggle
+      type: state-icon
+      icon: 'mdi:floor-lamp'
+      - entity: light.faretti_soggiorno
+      hold_action:
+        action: more-info
+      style:
+        '--iron-icon-height': 36px
+        '--iron-icon-width': 36px
+        left: 54%
+        top: 50%
+      tap_action:
+        action: toggle
+      type: state-icon
+      icon: 'mdi:google-circles-communities'
+      - entity: light.luce_zona_notte
+      icon: 'mdi:ceiling-light'
+      hold_action:
+        action: more-info
+      style:
+        '--iron-icon-height': 36px
+        '--iron-icon-width': 36px
+        left: 46%
+        top: 35%
+      tap_action:
+        action: toggle
+      type: state-icon
+      - entity: light.yeelight_mono1_34ce00886e69
+      hold_action:
+        action: more-info
+      icon: 'mdi:floor-lamp'
+      style:
+        '--iron-icon-height': 48px
+        '--iron-icon-width': 48px
+        left: 27%
+        top: 58%
+      tap_action:
+        action: toggle
+      type: state-icon
+      - entity: sensor.temperature_158d0002288471
+      style:
+        left: 30%
+        top: 43%
+      type: state-label
+      - entity: sensor.temperature_158d00022728f3
+      style:
+        left: 35%
+        top: 80%
+      type: state-label
+      - entity: climate.cameretta
+      style:
+        background: '#999'
+        left: 30%
+        top: 20%
+      type: state-icon
+      - entity: sensor.cameretta_temperature
+      style:
+        left: 30%
+        top: 25%
+      type: state-label
+      - entity: sensor.temperature_158d000224cd0d
+      style:
+        left: 35%
+        top: 10%
+      type: state-label
+      - entity: sensor.camera_temperature
+      style:
+        left: 75%
+        top: 75%
+      type: state-label
+      - entity: sensor.soggiorno_temperature
+      style:
+        left: 58%
+        top: 20%
+      type: state-label
+      - entity: climate.soggiorno
+      style:
+        background: '#999'
+        left: 54%
+        top: 20%
+      type: state-icon
+      - entity: cover.balcone_studio
+      style:
+        background: '#999'
+        color: white
+        left: 25%
+        top: 48%
+      type: state-icon
+      - entity: cover.balcone_cucina
+      style:
+        background: '#999'
+        color: white
+        left: 25%
+        top: 73%
+      type: state-icon
+      - entity: cover.finestra_cucina
+      style:
+        background: '#999'
+        color: white
+        left: 25%
+        top: 88%
+      type: state-icon
+      - entity: cover.finestra_cameretta
+      style:
+        background: '#999'
+        color: white
+        left: 25%
+        top: 19%
+      type: state-icon
+      - entity: binary_sensor.door_window_sensor_158d0002d70751
+      style:
+        background: '#999'
+        color: white
+        left: 25%
+        top: 25%
+      type: state-icon
+      - entity: cover.finestra_camera
+      style:
+        background: '#999'
+        color: white
+        left: 80%
+        top: 75%
+      type: state-icon
+      - entity: cover.finestra_bagno_camera
+      style:
+        background: '#999'
+        color: white
+        left: 80%
+        top: 55%
+      type: state-icon
+      - entity: cover.finestra_soggiorno_cortile
+      style:
+        background: '#999'
+        color: white
+        left: 80%
+        top: 42%
+      type: state-icon
+      - entity: cover.finestra_soggiorno_esterno
+      style:
+        background: '#999'
+        color: white
+        left: 56%
+        top: 11%
+      type: state-icon
+      - entity: cover.finestra_bagno
+      style:
+        background: '#999'
+        color: white
+        left: 49%
+        top: 4%
+      type: state-icon
+      - entity: cover.balcone_soggiorno
+      style:
+        background: '#999'
+        color: white
+        left: 75%
+        top: 22%
+      type: state-icon
+      - entity: camera.cctv_cucina_frame
+      style:
+        left: 43%
+        top: 67%
+      type: state-icon
+      - entity: camera.cctv_cameretta_rtsp
+      style:
+        border-radius: 10%
+        left: 43%
+        top: 22%
+      type: state-icon
+      - entity: camera.cctv_esterno_frame
+      style:
+        border-radius: 10%
+        left: 20%
+        top: 55%
+        transform: rotate(90deg)
+      type: state-icon
+      - entity: camera.cctv_ingresso_frame
+      style:
+        left: 45%
+        top: 57%
+      type: state-icon
+      - entity: media_player.tv_box
+      icon: 'mdi:cast'
+      style:       
+        left: 65%
+        top: 20%
+      type: state-icon
+      - entity: media_player.mini
+      icon: 'mdi:google-home'
+      style:
+        left: 35%
+        top: 90%
+      type: state-icon
+      - entity: media_player.mini_nero
+      icon: 'mdi:google-home'
+      style:
+        left: 55%
+        top: 30%
+      type: state-icon
+      - entity: media_player.cucina
+      icon: 'mdi:cast'
+      style:
+        left: 35%
+        top: 70%
+      type: state-icon
+      - entity: media_player.camera
+      icon: 'mdi:cast'
+      style:
+        left: 70%
+        top: 65%
+      type: state-icon
+    image: /local/pianta_bordo_grigio.png
+    type: picture-elements
+  icon: 'mdi:home'
+  panel: true
+  title: Casa
+  - badges: []
+  cards:
+    - cards:
+      - cards:
+        - cards:
+          - entity: sensor.date
+          scale: 65px
+          type: 'custom:bignumber-card'
+          - entity: sensor.time
+          scale: 65px
+          type: 'custom:bignumber-card'
+        type: vertical-stack
+        - entity: weather.dark_sky
+        type: 'custom:weather-card'
+      type: horizontal-stack
+      - cards:
+        - aspect_ratio: 50%
+        entity: sensor.dark_sky_summary
+        image: >-
+          https://api.sat24.com/animated/IT/visual/1/W_dot_%20Europe%20Standard%20Time/8516406
+        name: Previsione
+        type: picture-entity
+        - aspect_ratio: 50%
+        entity: sensor.dark_sky_precip_probability
+        image: >-
+          https://api.sat24.com/animated/IT/rainTMC/1/W_dot_%20Europe%20Standard%20Time/125509
+        name: Probabilità pioggia
+        type: picture-entity
+      type: horizontal-stack
+    type: vertical-stack
+  icon: 'mdi:weather-sunny'
+  panel: true
+  path: wheater
+  title: Meteo
+  - badges: []
+  cards:
+    - cards:
+      - cards:
+        - entity: script.tapp_apri_tutto
+        'hold_action:action': more-info
+        icon: 'mdi:arrow-up-bold-circle-outline'
+        icon_height: 100px
+        name: Apri tutte le tapparelle
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+        - entity: script.tapp_apri_principali
+        'hold_action:action': more-info
+        icon: 'mdi:arrow-up-bold-hexagon-outline'
+        icon_height: 100px
+        name: Apri tapparelle terrazzo
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+        - entity: script.tapp_chiudi_principali
+        'hold_action:action': more-info
+        icon: 'mdi:arrow-down-bold-hexagon-outline'
+        icon_height: 100px
+        name: Chiudi tapparelle terrazzo
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+        - entity: script.tapp_chiudi_tutto
+        'hold_action:action': more-info
+        icon: 'mdi:arrow-down-bold-circle-outline'
+        icon_height: 100px
+        name: Chiudi tutte le tapparelle
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+      type: horizontal-stack
+      - cards:
+        - entity: script.tapp_mattino
+        'hold_action:action': more-info
+        icon: 'mdi:weather-sunny'
+        icon_height: 100px
+        name: Imposta tapparelle Mattino
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+        - entity: script.tapp_pomeriggio
+        'hold_action:action': more-info
+        icon: 'mdi:weather-sunset-down'
+        icon_height: 100px
+        name: Imposta tapparelle Pomeriggio
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+        - entity: script.tapp_tramonto
+        'hold_action:action': more-info
+        icon: 'mdi:weather-sunset'
+        icon_height: 100px
+        name: Imposta tapparelle Tramonto
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+        - entity: script.tapp_notte
+        'hold_action:action': more-info
+        icon: 'mdi:weather-night'
+        icon_height: 100px
+        name: Imposta tapparelle Notte
+        show_icon: true
+        show_name: true
+        'tap_action:action': call-service
+        type: entity-button
+      type: horizontal-stack
+      - entities:
+        - entity: cover.finestra_cucina
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.balcone_cucina
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.balcone_studio
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.finestra_cameretta
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.finestra_bagno
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.finestra_soggiorno_esterno
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.balcone_soggiorno
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.finestra_soggiorno_cortile
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.finestra_bagno_camera
+        step: 5
+        type: 'custom:slider-entity-row'
+        - entity: cover.finestra_camera
+        step: 5
+        type: 'custom:slider-entity-row'
+      type: entities
+      - columns: 10
+      entities:
+        - entity: sensor.tapp_cucina_balcone_pos
+        show_icon: false
+        type: sensor
+        - entity: sensor.tapp_studio_pos
+        type: sensor
+        - entity: sensor.tapp_cameretta_pos
+        type: sensor
+        - entity: sensor.tapp_bagno_pos
+        type: sensor
+        - entity: sensor.tapp_soggiorno_fin_esterna_pos
+        type: sensor
+        - entity: sensor.tapp_soggiorno_fin_interna_pos
+        type: sensor
+        - entity: sensor.tapp_soggiorno_balcone_pos
+        type: sensor
+        - entity: sensor.tapp_bagno_camera_pos
+        type: sensor
+        - entity: sensor.tapp_camera_pos
+        type: sensor
+        - entity: sensor.tapp_cucina_finestra_pos
+        type: sensor
+      type: glance
+    type: vertical-stack
+  icon: 'mdi:garage'
+  panel: true
+  path: default_view
+  title: default_view
+  - badges: []
+  cards:
+    - cards:
+      - cards:
+        - color: '#333'
+        color_type: label-card
+        name: Ingresso
+        styles:
+          card:
+          - height: 40px
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:google-circles-communities'
+        name: Faretti ingresso
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.faretti_soggiorno
+        hold_action:
+          action: more-info
+        icon: 'mdi:google-circles-communities'
+        name: Faretti soggiorno
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:led-strip-variant'
+        name: LED Workshop
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+      type: vertical-stack
+      - cards:
+        - color: '#333'
+        color_type: label-card
+        name: Cucina
+        styles:
+          card:
+          - height: 40px
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Lampadario
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:spotlight-beam'
+        name: Faretti piano lavoro
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:outdoor-lamp'
+        name: Esterno
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+      type: vertical-stack
+      - cards:
+        - color: '#333'
+        color_type: label-card
+        name: Soggiorno
+        styles:
+          card:
+          - height: 40px
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Lampadario
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:vanity-light'
+        name: Lampade tavolo
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.luce_divano_2
+        hold_action:
+          action: more-info
+        icon: 'mdi:floor-lamp'
+        name: Lampada divano
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:led-strip-variant'
+        name: LED Libreria
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+      type: vertical-stack
+      - cards:
+        - color: '#333'
+        color_type: label-card
+        name: Camera
+        styles:
+          card:
+          - height: 40px
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:circle-slice-8'
+        name: Anticamera
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Lampadario
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color: transparent
+        color_type: label-card
+        name: null
+        styles:
+          card:
+          - height: 72px
+        type: 'custom:button-card'
+        - color: '#333'
+        color_type: label-card
+        name: Studio
+        styles:
+          card:
+          - height: 40px
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.yeelight_mono1_34ce00886e69
+        hold_action:
+          action: more-info
+        icon: 'mdi:floor-lamp'
+        name: Lampada divano
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+      type: vertical-stack
+      - cards:
+        - color: '#333'
+        color_type: label-card
+        name: Cameretta
+        styles:
+          card:
+          - height: 40px
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.luce_cameretta
+        icon: 'mdi:ceiling-light'
+        name: Lampadario
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.luce_nuvoletta
+        hold_action:
+          action: more-info
+        icon: 'mdi:cloud'
+        label: |
+          [[[
+          var bri = states['light.luce_nuvoletta'].attributes.brightness;
+          return 'Luminosità: ' + (bri ? bri : '0') + '%';
+          ]]]
+        name: Luce notturna
+        show_label: true
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.gateway_light_7811dcb35e9d
+        hold_action:
+          action: more-info
+        icon: 'mdi:circle-slice-8'
+        label: |
+          [[[
+          var bri = states['light.gateway_light_7811dcb35e9d'].attributes.brightness;
+          return 'Luminosità: ' + (bri ? bri : '0') + '%';
+          ]]]   
+        name: Anticamera
+        show_label: true
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+      type: vertical-stack
+      - cards:
+        - color: '#333'
+        color_type: label-card
+        name: Servizi
+        styles:
+          card:
+          - height: 40px
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.luce_zona_notte
+        icon: 'mdi:ceiling-light'
+        name: Luce zona notte
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+        - color_type: icon
+        entity: light._
+        hold_action:
+          action: more-info
+        icon: 'mdi:circle-slice-8'
+        name: Ospiti
+        styles:
+          card:
+          - height: 120px
+          icon:
+          - color: '#666'
+          name:
+          - color: '#666'
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.bagno_camera_1
+        hold_action:
+          action: more-info
+        icon: 'mdi:circle-slice-8'
+        name: Privato 1
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+        - color_type: card
+        entity: light.bagno_camera_2
+        hold_action:
+          action: more-info
+        icon: 'mdi:circle-slice-8'
+        name: Privato 2
+        styles:
+          card:
+          - height: 120px
+        type: 'custom:button-card'
+      type: vertical-stack
+    type: horizontal-stack
+  icon: 'mdi:lightbulb'
+  panel: true
+  path: illuminazione
+  title: Luci
+  - icon: 'mdi:thermostat'
+  panel: true
+  path: riscaldamento
+  title: Riscaldamento
+  badges: []
+  cards:
+    - cards:
+      - cards:
+        - type: 'custom:au190-thermostat-card'
+        entity: climate.cucina
+        title: Cucina
+        - type: 'custom:au190-thermostat-card'
+        entity: climate.soggiorno
+        title: Soggiorno tavolo
+        - type: 'custom:au190-thermostat-card'
+        entity: climate.soggiorno_divano
+        title: Soggiorno divano
+        - type: entities
+        title: Sensori Temperatura
+        show_header_toggle: false
+        entities:
+          - entity: sensor.temperature_158d00022728f3
+          name: Cucina
+          - entity: sensor.temperature_158d000224cd0d
+          name: Cameretta
+          - entity: sensor.temperature_158d0002288471
+          name: Studio
+          - entity: sensor.temperature_158d00022725fa
+          name: Bagno
+        style: |
+          .card-header {
+          font-size: 18px;
+          }
+      type: horizontal-stack
+      - cards:
+        - type: 'custom:au190-thermostat-card'
+        entity: climate.camera
+        title: Camera
+        step: 1
+        small_i: true
+        highlight_tap: true
+        - type: 'custom:au190-thermostat-card'
+        entity: climate.camera_bagno
+        title: Bagno in camera
+        step: 1
+        small_i: true
+        highlight_tap: true
+        - type: 'custom:au190-thermostat-card'
+        entity: climate.cameretta
+        title: Cameretta
+        step: 1
+        small_i: true
+        highlight_tap: true
+        - type: 'custom:au190-thermostat-card'
+        entity: climate.bagno
+        title: Bagno
+        step: 1
+        small_i: true
+        highlight_tap: true
+      type: horizontal-stack
+    type: vertical-stack
+  - badges: []
+  cards:
+    - cards:
+      - cards:
+        - decimals: 1
+        entities:
+          - entity: sensor.camera_temperature
+          name: Temp
+          show_fill: false
+          show_state: true
+          - color: '#999'
+          entity: sensor.camera_temperature_2
+          name: Target
+          show_fill: false
+          show_state: true
+          - color: white
+          entity: sensor.camera_heating
+          name: Risc
+          show_line: false
+          show_state: true
+          y_axis: secondary
+        hour24: true
+        hours_to_show: 24
+        line_width: 2
+        lower_bound_secondary: 0
+        name: Camera
+        points_per_hour: 3
+        show:
+          labels: true
+          legend: false
+          points: false
+        type: 'custom:mini-graph-card'
+        upper_bound_secondary: 100
+        - decimals: 1
+        entities:
+          - entity: sensor.cameretta_temperature
+          name: Temperatura
+          show_fill: false
+          show_state: true
+          - color: '#999'
+          entity: sensor.cameretta_temperature_2
+          name: Target
+          show_fill: false
+          show_state: true
+          - color: white
+          entity: sensor.cameretta_heating
+          name: Riscalamento
+          show_line: false
+          show_state: true
+          y_axis: secondary
+        hour24: true
+        hours_to_show: 24
+        line_width: 2
+        lower_bound_secondary: 0
+        name: Cameretta
+        points_per_hour: 3
+        show:
+          labels: true
+          legend: false
+          points: false
+        type: 'custom:mini-graph-card'
+        upper_bound_secondary: 100
+        - decimals: 1
+        entities:
+          - entity: sensor.soggiorno_temperature
+          name: Temperatura
+          show_fill: false
+          show_state: true
+          - color: '#999'
+          entity: sensor.soggiorno_temperature_2
+          name: Target
+          show_fill: false
+          show_state: true
+          - color: white
+          entity: sensor.soggiorno_heating
+          name: Riscaldamento
+          show_line: false
+          show_state: true
+          y_axis: secondary
+        hour24: true
+        hours_to_show: 24
+        line_width: 2
+        lower_bound_secondary: 0
+        name: Soggiorno
+        points_per_hour: 3
+        show:
+          labels: true
+          legend: false
+          points: false
+        type: 'custom:mini-graph-card'
+        upper_bound_secondary: 100
+      type: horizontal-stack
+      - cards:
+        - entities:
+          - entity: sensor.camera_humidity
+          icon: 'mdi:water-percent'
+          - entity: sensor.camera_heating
+          icon: 'mdi:radiator'
+          - entity: sensor.camera_link
+          icon: 'mdi:wifi'
+          - entity: climate.camera
+        show_name: false
+        type: glance
+        - entities:
+          - entity: sensor.cameretta_humidity
+          icon: 'mdi:water-percent'
+          - entity: sensor.cameretta_heating
+          icon: 'mdi:radiator'
+          - entity: sensor.cameretta_link
+          icon: 'mdi:wifi'
+          - entity: climate.cameretta
+        show_name: false
+        type: glance
+        - entities:
+          - entity: sensor.soggiorno_humidity
+          icon: 'mdi:water-percent'
+          - entity: sensor.soggiorno_heating
+          icon: 'mdi:radiator'
+          - entity: sensor.soggiorno_link
+          icon: 'mdi:wifi'
+          - entity: climate.soggiorno
+        show_name: false
+        type: glance
+      type: horizontal-stack
+      - cards:
+        - entity: sensor.temperature_158d00022728f3
+        graph: line
+        name: Cucina
+        type: sensor
+        - entity: sensor.temperature_158d000224cd0d
+        graph: line
+        name: Frigorifero
+        type: sensor
+        - entity: sensor.temperature_158d0002288471
+        graph: line
+        name: Studio
+        type: sensor
+        - entity: sensor.temperature_158d00022725fa
+        graph: line
+        name: Bagno
+        type: sensor
+      type: horizontal-stack
+      - cards:
+        - entities:
+          - entity: sensor.humidity_158d00022728f3
+          icon: 'mdi:water-percent'
+          - entity: sensor.pressure_158d00022728f3
+          icon: 'mdi:arrow-down'
+          - entity: sensor.temperature_158d00022728f3_battery_level
+        show_name: false
+        type: glance
+        - entities:
+          - entity: sensor.humidity_158d000224cd0d
+          icon: 'mdi:water-percent'
+          - entity: sensor.pressure_158d000224cd0d
+          icon: 'mdi:arrow-down'
+          - entity: sensor.temperature_158d000224cd0d_battery_level
+        show_name: false
+        type: glance
+        - entities:
+          - entity: sensor.humidity_158d0002288471
+          icon: 'mdi:water-percent'
+          - entity: sensor.pressure_158d0002288471
+          icon: 'mdi:arrow-down'
+          - entity: sensor.temperature_158d0002288471_battery_level
+        show_name: false
+        type: glance
+        - entities:
+          - entity: sensor.humidity_158d00022725fa
+          icon: 'mdi:water-percent'
+          - entity: sensor.pressure_158d00022725fa
+          icon: 'mdi:arrow-down'
+          - entity: sensor.temperature_158d00022725fa_battery_level
+        show_name: false
+        type: glance
+      type: horizontal-stack
+    type: vertical-stack
+  icon: 'mdi:thermometer'
+  panel: true
+  path: climate
+  title: Clima
+  - badges: []
+  cards:
+    - cards:
+      - cards:
+        - entities:
+          - entity: input_select.radio_player
+          - entity: input_select.radio_station
+        type: entities
+        - entities:
+          - entity: automation.auto_start_radio
+          hold_action: more-info
+          icon: 'mdi:play'
+          name: PLAY
+          tap_action:
+            action: call-service
+            service: automation.trigger
+            service_data:
+            entity_id: automation.auto_start_radio
+          type: entity-button
+          - entity: automation.stop_radio
+          hold_action: more-info
+          icon: 'mdi:stop'
+          name: STOP
+          tap_action:
+            action: call-service
+            service: automation.trigger
+            service_data:
+            entity_id: automation.stop_radio
+          type: entity-button
+        title: Comandi Radio
+        type: glance
+      type: horizontal-stack
+      - cards:
+        - entity: media_player.diffusione
+        type: 'custom:mini-media-player'
+        - entity: media_player.mini
+        name: Cucina
+        type: 'custom:mini-media-player'
+        - entity: media_player.mini_nero
+        name: Soggiorno
+        type: 'custom:mini-media-player'
+      type: horizontal-stack
+    type: vertical-stack
+  icon: 'mdi:radio'
+  panel: true
+  path: radio
+  title: Radio
+  - badges: []
+  cards:
+    - cards:
+      - cards:
+        - entity: camera.cctv_cameretta_rtsp
+        name: Baby monitor
+        title: Baby monitor
+        type: picture-entity
+        - entity: climate.cameretta
+        name: Termostato
+        type: thermostat
+        - decimals: 0
+        entities:
+          - entity: sensor.cameretta_temperature
+          name: Temperatura
+          - entity: sensor.cameretta_humidity
+          name: Umidità
+          y_axis: secondary
+        fill: false
+        hour24: true
+        name: Clima
+        points_per_hour: 1
+        show:
+          fill: false
+          labels: true
+          labels_secondary: true
+        type: 'custom:mini-graph-card'
+      type: horizontal-stack
+      - cards:
+        - entity: light.luce_cameretta
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Lampadario
+        tap_action:
+          action: toggle
+        type: entity-button
+        - cards:
+          - entity: light.luce_nuvoletta
+          hold_action:
+            action: more-info
+          icon: 'mdi:cloud'
+          name: Luce notturna
+          tap_action:
+            action: toggle
+          type: entity-button
+          - entities:
+            - entity: light.luce_nuvoletta
+            full_row: true
+            hide_when_off: true
+            icon: 'mdi:cloud'
+            name: Luminosità
+            type: 'custom:slider-entity-row'
+          type: entities
+        type: vertical-stack
+        - cards:
+          - entity: light.gateway_light_7811dcb35e9d
+          hold_action:
+            action: more-info
+          name: Luce anticamera
+          tap_action:
+            action: toggle
+          type: entity-button
+          - entities:
+            - entity: light.gateway_light_7811dcb35e9d
+            full_row: true
+            hide_when_off: true
+            icon: 'mdi:light-bulb'
+            name: Luminosità
+            type: 'custom:slider-entity-row'
+          type: entities
+        type: vertical-stack
+        - entities:
+          - entity: cover.finestra_cameretta
+          type: cover
+          - entity: cover.finestra_cameretta
+          full_row: true
+          type: 'custom:slider-entity-row'
+          - entity: sensor.tapp_cameretta_power
+          name: Potenza motore
+          - entity: sensor.tapp_cameretta
+          name: Ultima azione
+        show_header_toggle: false
+        title: Tapparella
+        type: entities
+      type: horizontal-stack
+    type: vertical-stack
+  icon: ''
+  panel: true
+  path: cameretta
+  title: Cameretta
+  - badges: []
+  cards:
+    - cards:
+      - entities:
+        - entity: binary_sensor.motion_sensor_158d0001874bc1
+        title: Movimento Ingresso
+        - entity: alarm_control_panel.allarme
+        name: Allarme
+        type: alarm-panel
+      type: glance
+      - cards:
+        - aspect_ratio: 16x9
+        entity: camera.cctv_ingresso_rtsp
+        name: Ingresso
+        type: picture-entity
+        - aspect_ratio: 16x9
+        entity: camera.cctv_esterno_rtsp
+        name: Esterno
+        type: picture-entity
+      type: horizontal-stack
+      - cards:
+        - aspect_ratio: 16x9
+        entity: camera.cctv_cucina_rtsp
+        name: Cucina
+        type: picture-entity
+        - aspect_ratio: 16x9
+        entity: camera.cctv_cameretta_rtsp
+        name: Cameretta
+        type: picture-entity
+      type: horizontal-stack
+      - entities:
+        - action: call-service
+        entity: script.cctv_update_frames
+        name: Aggiorna telecamere
+        service: script.turn_on
+        service_data:
+          entity: script.cctv_update_frames
+        tap_action: 'action:turn_on'
+      type: glance
+      - columns: 5
+      entities:
+        - automation.allarme_armed_away
+        - automation.allarme_armed_home
+        - automation.allarme_disarmed
+        - automation.allarme_mentre_fuori_casa
+        - automation.telegram_disattiva_allarme
+      title: Automazioni sicurezza
+      type: glance
+    type: vertical-stack
+  icon: 'mdi:shield-home'
+  panel: true
+  path: alarm
+  title: Sicurezza
+  - badges: []
+  cards:
+    - entities:
+      - entity: sensor.last_boot
+      - entity: sensor.load_5m
+    title: System
+    type: entities
+    - entities:
+      - entity: sensor.batt_movimento_living
+      - entity: sensor.batt_interruttore_living
+      - entity: sensor.batt_sensore_thp_living
+      - entity: sensor.batt_sensore_thp_kitchen
+      - entity: sensor.batt_sensore_thp_bedroom1
+      - entity: sensor.batt_sensore_thp_bedroom2
+    title: Tracking
+    type: entities
+  icon: 'mdi:information-outline'
+  path: sys_mon
+  title: System
+  - badges:
+    - entity: device_tracker.key_finder_giuseppe
+    - entity: device_tracker.op6
+  cards:
+    - entities:
+      - entity: sensor.bed_activity_158d0002a23952
+      - entity: binary_sensor.vibration_158d0002a23952
+      - entity: sensor.coordination_158d0002a23952
+      - entity: sensor.tilt_angle_158d0002a23952
+    show_header_toggle: false
+    title: Vibrazioni
+    type: entities
+    - type: 'custom:theme-maker'
+    - entities:
+      - entity: binary_sensor.dpc_milano_temporali_oggi
+      - entity: binary_sensor.dpc_milano_idraulico_oggi
+      - entity: binary_sensor.dpc_milano_idrogeologico_oggi
+    show_header_toggle: false
+    type: entities
+    - type: 'custom:simple-thermostat'
+    control:
+      _headings: false
+      hvac:
+      'on': false
+      preset:
+      away: false
+      home: false
+    entity: climate.camera
+    decimals: 0
+    hide:
+      temperature: true
+      state: true
+    sensors:
+      - entity: sensor.camera_temperature
+      icon: 'mdi:thermometer'
+    step_size: 1
+    style: |
+      ha-card {
+      --st-font-size-sensors: 28px;
+      --st-mode-active-color: red;
+      --st-mode-active-background: green;
+      }
+    - type: 'custom:au190-thermostat-card'
+    entity: climate.cucina
+    title: Cucina
+    no_card: true
+    step: 1
+    highlight_tap: true
+  icon: ''
+  panel: false
+  title: TEST

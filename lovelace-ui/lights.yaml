@@ -1,0 +1,328 @@
+  title: Luci
+  path: illuminazione
+  icon: 'mdi:lightbulb'
+  panel: true
+  badges: []
+  cards:
+    - type: horizontal-stack
+      cards:
+      - type: vertical-stack
+        cards:
+          - color: '#333'
+            color_type: label-card
+            name: Ingresso
+            styles:
+              card:
+              - height: 40px
+            type: 'custom:button-card'
+          - color_type: card
+            entity: light.faretti_ingresso
+            hold_action:
+              action: more-info
+            icon: 'mdi:google-circles-communities'
+            name: Faretti ingresso
+            styles:
+              card:
+              - height: 120px
+            type: 'custom:button-card'
+          - color_type: card
+            entity: light.faretti_soggiorno
+            hold_action:
+              action: more-info
+            icon: 'mdi:google-circles-communities'
+            name: Faretti soggiorno
+            styles:
+              card:
+              - height: 120px
+            type: 'custom:button-card'
+          - color_type: card
+            entity: light.led_ambiente_soggiorno
+            hold_action:
+              action: more-info
+            icon: 'mdi:led-strip-variant'
+            name: LED Ambiente
+            styles:
+              card:
+              - height: 120px
+            type: 'custom:button-card'    
+
+      - type: vertical-stack
+        cards:
+          - color: '#333'
+            color_type: label-card
+            name: Cucina
+            styles:
+              card:
+              - height: 40px
+            type: 'custom:button-card'
+          - color_type: icon
+            entity: light._
+            hold_action:
+              action: more-info
+            icon: 'mdi:ceiling-light'
+            name: Lampadario
+            styles:
+              card:
+              - height: 120px
+              icon:
+              - color: '#666'
+              name:
+              - color: '#666'
+            type: 'custom:button-card'
+          - color_type: icon
+            entity: light._
+            hold_action:
+              action: more-info
+            icon: 'mdi:spotlight-beam'
+            name: Faretti piano lavoro
+            styles:
+              card:
+              - height: 120px
+              icon:
+              - color: '#666'
+              name:
+              - color: '#666'
+            type: 'custom:button-card'
+          - color_type: icon
+            entity: light._
+            hold_action:
+              action: more-info
+            icon: 'mdi:outdoor-lamp'
+            name: Esterno
+            styles:
+              card:
+              - height: 120px
+              icon:
+              - color: '#666'
+              name:
+              - color: '#666'
+            type: 'custom:button-card'  
+            
+
+      - type: vertical-stack
+        cards:
+        - color: '#333'
+          color_type: label-card
+          name: Soggiorno
+          styles:
+            card:
+            - height: 40px
+          type: 'custom:button-card'
+        - color_type: icon
+          entity: light._
+          hold_action:
+            action: more-info
+          icon: 'mdi:ceiling-light'
+          name: Lampadario
+          styles:
+            card:
+            - height: 120px
+            icon:
+            - color: '#666'
+            name:
+            - color: '#666'
+          type: 'custom:button-card'
+        - color_type: icon
+          entity: light._
+          hold_action:
+            action: more-info
+          icon: 'mdi:vanity-light'
+          name: Lampade tavolo
+          styles:
+            card:
+            - height: 120px
+            icon:
+            - color: '#666'
+            name:
+            - color: '#666'
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.lampada_divano
+          hold_action:
+            action: more-info
+          icon: 'mdi:floor-lamp'
+          name: Lampada divano
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        - color_type: icon
+          entity: light._
+          hold_action:
+            action: more-info
+          icon: 'mdi:pine-tree'
+          name: Albero di Natale
+          styles:
+            card:
+            - height: 120px
+            icon:
+            - color: '#666'
+            name:
+            - color: '#666'
+          type: 'custom:button-card'
+        
+      
+      - type: vertical-stack
+        cards:
+        - color: '#333'
+          color_type: label-card
+          name: Camera
+          styles:
+            card:
+            - height: 40px
+          type: 'custom:button-card'
+        - color_type: icon
+          entity: light._
+          hold_action:
+            action: more-info
+          icon: 'mdi:circle-slice-8'
+          name: Anticamera
+          styles:
+            card:
+            - height: 120px
+            icon:
+            - color: '#666'
+            name:
+            - color: '#666'
+          type: 'custom:button-card'
+        - color_type: icon
+          entity: light._
+          hold_action:
+            action: more-info
+          icon: 'mdi:ceiling-light'
+          name: Lampadario
+          styles:
+            card:
+            - height: 120px
+            icon:
+            - color: '#666'
+            name:
+            - color: '#666'
+          type: 'custom:button-card'
+        - color: transparent
+          color_type: label-card
+          name: null
+          styles:
+            card:
+            - height: 72px
+          type: 'custom:button-card'
+        - color: '#333'
+          color_type: label-card
+          name: Studio
+          styles:
+            card:
+            - height: 40px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.lampada_studio
+          hold_action:
+            action: more-info
+          icon: 'mdi:floor-lamp'
+          name: Lampada studio
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'        
+      
+      
+      - type: vertical-stack
+        cards:
+        - color: '#333'
+          color_type: label-card
+          name: Cameretta
+          styles:
+            card:
+            - height: 40px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.luce_cameretta
+          icon: 'mdi:ceiling-light'
+          name: Lampadario
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.luce_nuvoletta
+          hold_action:
+            action: more-info
+          icon: 'mdi:cloud'
+          label: |
+            [[[
+            var bri = states['light.luce_nuvoletta'].attributes.brightness;
+            return 'Luminosità: ' + (bri ? bri : '0') + '%';
+            ]]]
+          name: Luce notturna
+          show_label: true
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.gateway_light_7811dcb35e9d
+          hold_action:
+            action: more-info
+          icon: 'mdi:circle-slice-8'
+          label: |
+            [[[
+            var bri = states['light.gateway_light_7811dcb35e9d'].attributes.brightness;
+            return 'Luminosità: ' + (bri ? bri : '0') + '%';
+            ]]]   
+          name: Anticamera
+          show_label: true
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        
+      
+      
+      - type: vertical-stack
+        cards:
+        - color: '#333'
+          color_type: label-card
+          name: Servizi
+          styles:
+            card:
+            - height: 40px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.luce_zona_notte
+          icon: 'mdi:wall-sconce-flat'
+          name: Luce zona notte
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.luce_bagno
+          hold_action:
+            action: more-info
+          icon: 'mdi:circle-slice-8'
+          name: Ospiti
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.bagno_camera_1
+          hold_action:
+            action: more-info
+          icon: 'mdi:circle-slice-8'
+          name: Privato 1
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        - color_type: card
+          entity: light.bagno_camera_2
+          hold_action:
+            action: more-info
+          icon: 'mdi:circle-slice-8'
+          name: Privato 2
+          styles:
+            card:
+            - height: 120px
+          type: 'custom:button-card'
+        
+    

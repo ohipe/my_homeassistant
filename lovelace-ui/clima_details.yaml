@@ -1,0 +1,156 @@
+  title: Riscaldamento
+  path: clima  
+  icon: 'mdi:thermometer'
+  panel: true  
+  badges: []
+  cards:
+    - type: custom:layout-card
+      layout: vertical
+      column_width: [24%, 40%, 18%, 18%] 
+      cards:
+
+        - type: entities
+          entities:
+          - type: custom:multiple-entity-row
+            entity: sensor.cucina_temperature_offset
+            name: Cucina
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d00022728f3
+                name: false     
+          - type: custom:multiple-entity-row
+            entity: sensor.cameretta_temperature_offset
+            name: Cameretta
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d000224cd0d
+                name: false  
+          - type: custom:multiple-entity-row
+            entity: sensor.bagno_temperature_offset
+            name: Bagno
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d00022725fa
+                name: false  
+          - type: custom:multiple-entity-row
+            entity: sensor.studio_temperature_offset
+            name: Studio
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d0002288471
+                name: false 
+
+        - break
+      
+        - type: custom:mini-graph-card
+          name: Cameretta
+          points_per_hour: 60
+          smoothing: false
+          hour24: true
+          line_width: 1
+          show:
+            fill: false
+            state: false
+            icon: false
+            points: false
+            labels: true
+          icon: mdi:thermostat
+          entities:
+            - entity: sensor.cameretta_temperature 
+              color: lightgray
+            - entity: sensor.temperature_158d000224cd0d  
+              color: 'var(--accent-color)'
+        - type: custom:mini-graph-card
+          name: Bagno
+          points_per_hour: 60
+          smoothing: false
+          hour24: true
+          line_width: 1  
+          show:
+            fill: false
+            state: false
+            icon: false
+            points: false
+            labels: true
+          icon: mdi:thermostat
+          entities:
+            - entity: sensor.bagno_temperature
+              color: lightgray             
+            - entity: sensor.temperature_158d00022725fa
+              color: 'var(--accent-color)'               
+        - type: custom:mini-graph-card
+          name: Studio
+          points_per_hour: 60
+          smoothing: false
+          hour24: true
+          line_width: 1     
+          show:
+            fill: false
+            state: false
+            icon: false
+            points: false
+            labels: true
+          icon: mdi:thermostat
+          entities:
+            - entity: sensor.studio_temperature    
+              color: lightgray          
+            - entity: sensor.temperature_158d0002288471
+              color: 'var(--accent-color)'  
+          
+        - break
+        
+        - type: gauge
+          entity: sensor.cucinotto_humidity
+          title: Cucinotto
+        - type: gauge
+          entity: sensor.cucina_humidity
+          title: Cucina
+        - type: gauge
+          entity: sensor.studio_humidity
+          title: Studio
+        - type: gauge
+          entity: sensor.cameretta_humidity
+          title: Cameretta
+        - type: gauge
+          entity: sensor.bagno_humidity
+          title: Bagno
+        - type: gauge
+          entity: sensor.zona_notte_humidity
+          title: Zona notte
+
+        - break
+        
+        - type: gauge
+          entity: sensor.cameretta_humidity
+          title: Ingresso
+        - type: gauge
+          entity: sensor.cameretta_humidity
+          title: Sogg Divano
+        - type: gauge
+          entity: sensor.cameretta_humidity
+          title: Soggiorno
+        - type: gauge
+          entity: sensor.cameretta_humidity
+          title: Bagno camera
+        - type: gauge
+          entity: sensor.cameretta_humidity
+          title: Camera
+        
+
+    
