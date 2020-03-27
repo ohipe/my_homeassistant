@@ -1,0 +1,62 @@
+﻿##########################################################
+# Telegram
+##########################################################
+
+-   alias: Telegram notifica alive
+    trigger: {platform: time, at: '00:00'}
+    action:
+      - service: notify.telegram_hass_bot
+        data:
+          title: '*Alive message*'
+          message: 'Homeassistant is up'
+      
+-   alias: 'Telegram notifica temperature'
+    trigger:
+        platform: event
+        event_type: telegram_command
+        event_data:
+            command: '/temp'
+    action:
+        service: notify.telegram_hass_bot
+        data:
+          title: "*Temperature in casa*\n"
+          message: "Living {{states.sensor.temperature_158d000224cd0d.state}} C
+                    Cucina {{states.sensor.temperature_158d00022728f3.state}} C\n
+                    Camera {{states.sensor.temperature_158d0002288471.state}} C\n                     
+                    Cameretta {{states.sensor.temperature_158d00022725fa.state}} C\n"                              
+
+-   alias: 'Telegram notifica umidita'
+    trigger:
+        platform: event
+        event_type: telegram_command
+        event_data:
+            command: '/humi'
+    action:
+        service: notify.telegram_hass_bot
+        data:
+          title: "*Livelli di umidita in casa*\n"
+          message: "Living {{states.sensor.humidity_158d000224cd0d.state}} %\n
+                    Cucina {{states.sensor.humidity_158d00022728f3.state}} %\n
+                    Camera {{states.sensor.humidity_158d0002288471.state}} %\n                     
+                    Cameretta {{states.sensor.humidity_158d00022725fa.state}} %\n"     
+
+-   alias: 'Telegram notifica clima in casa'
+    trigger:
+        platform: event
+        event_type: telegram_command
+        event_data:
+            command: '/clima'
+    action:
+        service: notify.telegram_hass_bot
+        data:
+          title: "*Clima in casa*"
+          message: "\n*Temperature*\n
+                    Living {{states.sensor.temperature_158d000224cd0d.state}} C\n
+                    Cucina {{states.sensor.temperature_158d00022728f3.state}} C\n
+                    Camera {{states.sensor.temperature_158d0002288471.state}} C\n                     
+                    Cameretta {{states.sensor.temperature_158d00022725fa.state}} C\n\n
+                    *Livelli di umidit*\n
+                    Living {{states.sensor.humidity_158d000224cd0d.state}} %\n
+                    Cucina {{states.sensor.humidity_158d00022728f3.state}} %\n
+                    Camera {{states.sensor.humidity_158d0002288471.state}} %\n                     
+                    Cameretta {{states.sensor.humidity_158d00022725fa.state}} %\n"  

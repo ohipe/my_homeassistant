@@ -1,0 +1,48 @@
+        
+##########################################################
+# Rollers: button to sensors
+##########################################################
+
+-   alias: tapp_camera_20_single_click
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001bd1e49
+        click_type: single
+    action:
+      service: cover.set_cover_position
+      data:
+        position: 20
+        entity_id: cover.finestra_camera
+        
+-   alias: tapp_camera_100_single_click
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001bd1e49
+        click_type: double
+    action:
+      service: cover.set_cover_position
+      data:
+        position: 100
+        entity_id: cover.finestra_camera        
+        
+##########################################################
+# Rollers: MQTT
+##########################################################
+       
+# - alias: 'Imposta tapparella studio'
+  # trigger:
+    # - platform: state
+      # entity_id: input_number.tapp_studio_to_pos
+  # action:
+    # - delay: '00:00:3'
+    # - service: mqtt.publish
+      # data_template:
+        # topic: 'shellies/shellyswitch-744D46/roller/0/command/pos'
+        # retain: true
+        # payload: "{{ states('input_number.tapp_studio_to_pos') | int }}"
+        
+        

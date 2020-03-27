@@ -1,0 +1,65 @@
+﻿##########################################################            
+## Allarme
+##########################################################            
+
+-   alias: 'Allarme ARMED_AWAY'
+    trigger:
+    - platform: state
+      entity_id: alarm_control_panel.allarme
+      to: 'armed_away'
+    action:                  
+    - service: notify.telegram_hass_bot
+      data:
+        title: "*ALLARME ATTIVATO*"
+        message: "Modalità Fuori Casa attiva"       
+
+-   alias: 'Allarme ARMED_HOME'
+    trigger:
+    - platform: state
+      entity_id: alarm_control_panel.allarme
+      to: 'armed_home'
+    action:                  
+    - service: notify.telegram_hass_bot
+      data:
+        title: "*ALLARME ATTIVATO*"
+        message: "à In Casa attiva"  
+
+-   alias: 'Allarme DISARMED'
+    trigger:
+    - platform: state
+      entity_id: alarm_control_panel.allarme
+      to: 'disarmed'
+    action:                  
+    - service: notify.telegram_hass_bot
+      data:
+        title: "*ALLARME DISATTIVATO*"
+        message: "Allarme è ora disattivo"  
+            
+-   alias: 'Allarme mentre Fuori Casa'
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d0001874bc1
+      to: 'on'
+    condition:
+    - condition: state
+      entity_id: alarm_control_panel.allarme
+      state: armed_away
+    action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.allarme                    
+    - service: notify.telegram_hass_bot
+      data:
+        title: "*ALLARME*"
+        message: "Rilevato movimento living"               
+
+-   alias: 'Telegram disattiva allarme'
+    trigger:
+        platform: event
+        event_type: telegram_command
+        event_data:
+            command: '/disarm'
+    action:
+    -   service: alarm_control_panel.alarm_disarm
+        entity_id: alarm_control_panel.allarme 
+        data: 
+            code: '2609'

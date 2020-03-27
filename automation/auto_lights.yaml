@@ -1,0 +1,177 @@
+﻿##########################################################
+# Lights
+##########################################################
+
+-   alias: Luci__Spegni_luci_notturne_al_mattino  
+    trigger:
+      platform: time
+      at: '05:30:00'
+    action:
+    - service: light.turn_off
+      data:
+        entity_id: light.lampada_studio
+    - service: light.turn_off
+      data:
+        entity_id: light.luce_nuvoletta
+
+-   alias: Luci__Single_click_Toggle_baby_light
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001d646e1
+        click_type: single
+    action:
+      service: light.toggle
+      data:
+        entity_id: light.luce_nuvoletta
+        brightness: 5
+        transition: 2
+        
+-   alias: Luci__Double_click_Decrease_baby_light
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001d646e1
+        click_type: double
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: light.luce_nuvoletta
+        brightness: 5
+        transition: 2
+
+-   alias: Luci__Hold_button_Increase_baby_light
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001d646e1
+        click_type: hold
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: light.luce_nuvoletta
+        brightness: '{{ states.light.luce_nuvoletta.attributes["brightness"]*5 | int}}'        
+
+-   alias: Luci__Movimento_Accendi_luce_ambiente
+    condition:
+       condition: and
+       conditions:
+       - condition: time
+         after: '00:00:00'
+         before: '07:00:00'
+       - condition: state
+         entity_id: light.led_ambiente_soggiorno #gateway_light_7811dcb35e9d
+         state: "off"
+    trigger:
+       platform: state
+       entity_id: binary_sensor.motion_sensor_158d0001874bc1
+       from: "off"
+       to: "on"
+    action:
+       service: light.turn_on
+       data:
+         entity_id: light.led_ambiente_soggiorno #gateway_light_7811dcb35e9d
+
+-   alias: Luci__Movimento_off_Spegni_luce_ambiente
+    condition:    
+       condition: and
+       conditions:
+       - condition: time
+         after: '00:00:00'
+         before: '07:00:00'
+       - condition: state
+         entity_id: light.led_ambiente_soggiorno #gateway_light_7811dcb35e9d
+         state: "on"  
+    trigger:
+       platform: state
+       entity_id: binary_sensor.motion_sensor_158d0001874bc1
+       to: 'off'
+    action:
+       service: light.turn_off
+       data:
+         entity_id: light.led_ambiente_soggiorno #gateway_light_7811dcb35e9d
+         
+-   alias: Luci__Apri_armadio_Accendi_faretti
+    condition:
+       - condition: state
+         entity_id: light.faretti_ingresso
+         state: "off"
+    trigger:
+       platform: state
+       entity_id: binary_sensor.door_window_sensor_158d0002d70614
+       from: "off"
+       to: "on"
+    action:
+     - service: light.turn_on
+       data:
+         entity_id: light.faretti_ingresso         
+     - service: automation.turn_on
+       data:
+         entity_id: automation.luci_chiudi_armadio_spegni_faretti         
+         
+-   alias: Luci__Chiudi_armadio_Spegni_faretti
+    condition:
+       - condition: state
+         entity_id: light.faretti_ingresso
+         state: "on"
+    trigger:
+       platform: state
+       entity_id: binary_sensor.door_window_sensor_158d0002d70614
+       from: "on"
+       to: "off"
+    action:
+     - service: light.turn_off
+       data:
+         entity_id: light.faretti_ingresso 
+     - service: automation.turn_off
+       data:
+         entity_id: automation.luci_chiudi_armadio_spegni_faretti          
+
+# 
+# Studio - yeelight       
+#
+-   alias: Luci__Single_click_Toggle_yeelight
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001f3de23
+        click_type: single
+    action:
+      service: light.toggle
+      data:
+        entity_id: light.lampada_studio
+        brightness: 5
+        transition: 2
+        
+-   alias: Luci__Double_click_Decrease_yeelight
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001f3de23
+        click_type: double
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: light.lampada_studio
+        brightness: 5
+        transition: 2
+
+-   alias: Luci__Double_click_Increase_yeelight
+    trigger:
+      platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001f3de23
+        click_type: hold
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: light.lampada_studio
+        brightness: '{{ states.light.lampada_studio.attributes["brightness"]*5 | int}}'        
+
+

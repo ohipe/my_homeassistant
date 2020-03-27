@@ -1,0 +1,99 @@
+
+
+-   alias: ifttt_test
+    trigger:
+    - event_data:
+        action: call_service
+      event_type: ifttt_webhook_received
+      platform: event
+    action:
+    # - data_template:
+        # entity_id: '{{ trigger.event.data.entity_id }}'
+      # service_template: '{{ trigger.event.data.service }}'
+    - service_template: notify.telegram_hass_bot
+      data_template:
+        title: 'Luminosita'
+        message: '{{ trigger.event.data.lumen }}'       
+
+
+          
+##########################################################
+# Start-up automations
+##########################################################
+-   alias: Startup Notification 
+    trigger: 
+      platform: homeassistant 
+      event: start 
+    action:
+      - service: notify.telegram_hass_bot
+        data:
+          title: '*Start-up*'
+          message: 'Setting roller positions...'    
+      - service: notify.telegram_hass_bot
+        data:
+          title: '*Start-up completed*'
+          message: 'Homeassistant is now up'
+
+##########################################################
+# Frontend
+##########################################################
+
+-   alias: hass theme
+    trigger:
+        platform: state
+        entity_id: input_select.hass_theme
+    action:
+        service: frontend.set_theme
+        data_template:
+            name: "{{ states.input_select.hass_theme.state }}"
+     
+        
+##########################################################
+# Cameras
+##########################################################
+         
+-   alias: update_cctv_snapshot
+    trigger: 
+      platform: time_pattern
+      minutes: "/5"
+    action:
+      - service: shell_command.cctv_frame_studio
+      - service: shell_command.cctv_frame_cameretta   
+      - service: shell_command.cctv_frame_ingresso
+      - service: shell_command.cctv_frame_esterno
+      - service: shell_command.cctv_frame_cucina
+
+
+##########################################################
+# Greatings
+##########################################################
+
+- id: giusy_back
+  alias: Bentornata Giusy
+  trigger:
+    platform: state
+    entity_id:
+      - device_tracker.giusy
+    from: 'not_home'
+    to: 'home'
+    for: '00:03:00'
+  action:
+  - service: tts.google_say
+    entity_id: media_player.diffusione
+    data_template:
+        message: 'Bentornata a casa, Giusy!'
+
+- id: giuseppe_back
+  alias: Bentornato Giuseppe
+  trigger:
+    platform: state
+    entity_id:
+      - device_tracker.giuseppe
+    from: 'not_home'
+    to: 'home'
+    for: '00:03:00'
+  action:
+  - service: tts.google_say
+    entity_id: media_player.diffusione
+    data_template:
+        message: 'Bentornato a casa, Giuseppe!' 
