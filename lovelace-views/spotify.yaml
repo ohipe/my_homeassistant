@@ -1,0 +1,10 @@
+  title: Spotify  
+  icon: 'mdi:spotify'
+  path: spotify  
+  panel: true  
+  badges: []
+  cards:
+     - type: 'custom:spotify-card'
+       client_id: !secret spotify_CLIENT_ID  
+       limit: 20 
+     - 

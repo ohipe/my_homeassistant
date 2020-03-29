@@ -1,0 +1,87 @@
+  title: Streaming  
+  icon: 'mdi:cast'
+  path: streaming  
+  panel: true  
+  badges: []
+  cards:
+    - type: horizontal-stack
+      cards:
+        - type: vertical-stack
+          cards:
+          - type: entities
+            entities:
+            - entity: input_select.radio_player
+            - entity: input_select.radio_station          
+          - type: glance
+            title: Comandi Radio
+            entities:
+            - type: entity-button
+              entity: automation.auto_start_radio
+              hold_action: 
+                action: more-info
+              icon: 'mdi:play'
+              name: PLAY
+              tap_action: 
+                action: call-service
+                service: automation.trigger
+                service_data:
+                  entity_id: automation.auto_start_radio              
+            - type: entity-button
+              entity: automation.stop_radio
+              hold_action: 
+                action: more-info
+              icon: 'mdi:stop'
+              name: STOP
+              tap_action: 
+                action: call-service
+                service: automation.trigger
+                service_data:
+                  entity_id: automation.stop_radio
+          - type: 'custom:mini-media-player'
+            entity: media_player.diffusione
+            artwork: cover
+          - type: 'custom:mini-media-player'
+            entity: media_player.mini
+            name: Cucina    
+            artwork: cover            
+          - type: 'custom:mini-media-player'
+            entity: media_player.mini_nero
+            name: Soggiorno  
+            artwork: cover
+        - type: vertical-stack
+          cards:            
+          - type: 'custom:mini-media-player'
+            entity: media_player.mibox3
+            artwork: cover            
+            name: TV Box Soggiorno            
+          - type: 'custom:mini-media-player'
+            entity: media_player.roku_yd005t724549
+            name: NOW-TV Soggiorno      
+            artwork: cover
+          - type: 'custom:mini-media-player'
+            entity: media_player.cucina
+            name: Chromecast Cucina
+            artwork: cover            
+          - type: 'custom:mini-media-player'
+            entity: media_player.camera
+            name: Chromecast camera  
+            artwork: cover            
+          - type: glance
+            title: Comandi Streaming
+            entities:
+              - type: entity-button
+                entity: script.camino
+                name: Camino
+                icon: mdi:fire
+                tap-action:
+                  action: call-service
+                  service: script.camino                  
+              - type: entity-button
+                entity: script.acquario
+                name: Acquario
+                icon: mdi:fish
+                tap-action:
+                  action: call-service
+                  service: script.acquario                  
+        
+    

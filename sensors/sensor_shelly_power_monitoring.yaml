@@ -1,0 +1,46 @@
+
+#########################################################################################
+# 
+# Shelly - EM
+# 
+#########################################################################################
+
+  # shelly EM  
+  - platform: mqtt
+    name: home_total_w
+    state_topic: "shellies/shellyem-B9E20D/emeter/0/power"
+    unit_of_measurement: 'W'
+    force_update: true
+  - platform: mqtt
+    name: home_total_reactive_w
+    state_topic: "shellies/shellyem-B9E20D/emeter/0/reactive_power"
+    unit_of_measurement: 'W'  
+  - platform: mqtt
+    name: home_total_volt
+    state_topic: "shellies/shellyem-B9E20D/emeter/0/voltage"
+    unit_of_measurement: 'V'
+
+#########################################################################################
+# 
+# Shelly - PLUG
+# 
+#########################################################################################
+
+  # plug-s  
+  - platform: mqtt
+    name: plug_s_w
+    state_topic: "shellies/shellyplug-s-267642/relay/0/power"
+    unit_of_measurement: 'W'
+    force_update: true
+  # - platform: mqtt
+    # name: plug_s_energy
+    # state_topic: "shellies/shellyplug-s-267642/relay/0/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: plug_s_temp
+    state_topic: "shellies/shellyplug-s-267642/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: plug_s_overtemp
+    state_topic: "shellies/shellyplug-s-267642/overtemperature"
+

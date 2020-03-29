@@ -1,0 +1,36 @@
+
+custom_header:
+  compact_mode: true
+  active_tab_color: 'var(--accent-color)'
+  tab_indicator_color: 'var(--accent-color)'
+  button_text:
+    options: '{{ date }}<br>{{ hours24 }}:{{ minutesLZ }} {{ AMPM }}'
+    voice: >-
+      {{states.weather.dark_sky.attributes.temperature}}°C
+    
+views:
+  - !include lovelace-views/home.yaml
+  - !include lovelace-views/covers.yaml
+  - !include lovelace-views/lights.yaml
+  - !include lovelace-views/clima.yaml  
+  - !include lovelace-views/streaming.yaml
+  - !include lovelace-views/spotify.yaml   
+  - !include lovelace-views/energy.yaml 
+  - !include lovelace-views/sysmon.yaml
+  - !include lovelace-views/automations.yaml
+  # hidden
+  - !include lovelace-views/clima_details.yaml
+  # - !include lovelace-views/covers2.yaml  
+  # - title: 'Test'
+    # icon: 'mdi:null'
+    # panel: false     
+    # badges: []
+    # cards:
+      # - type: 'custom:theme-maker'
+      # - type: entities
+        # entities:
+         # - input_text.name_device
+         # - input_text.name_command
+         # - script.learn_tv_commands
+    
+   

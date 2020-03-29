@@ -1,0 +1,69 @@
+homeassistant:
+  customize:
+    sensor.studio_desk_w:
+      friendly_name: Studio Desk   
+      icon: mdi:desk
+    sensor.studio_desk_w_filtered:
+      friendly_name: Studio Desk   
+      icon: mdi:desk      
+    sensor.studio_desk_kwh:
+      friendly_name: Studio Desk   
+      icon: mdi:desk 
+    sensor.studio_desk_energy_hour:
+      friendly_name: Studio Desk   
+      icon: mdi:counter
+    sensor.studio_desk_energy_day:
+      friendly_name: Studio Desk   
+      icon: mdi:counter
+    sensor.studio_desk_energy_mth:
+      friendly_name: Studio Desk   
+      icon: mdi:counter      
+
+sensor:
+  - platform: mqtt
+    name: studio_desk_w
+    state_topic: "shellies/shelly1pm-76E49A/relay/0/power"
+    unit_of_measurement: 'W'
+    force_update: true
+  # - platform: mqtt
+    # name: studio_desk_energy
+    # state_topic: "shellies/shelly1pm-76E49A/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: studio_desk_temp
+    state_topic: "shellies/shelly1pm-76E49A/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: studio_desk_overtemp
+    state_topic: "shellies/shelly1pm-76E49A/overtemperature"  
+
+  - platform: filter
+    name: studio_desk_w_filtered
+    entity_id: sensor.studio_desk_w
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 0.5
+      - filter: lowpass
+        time_constant: 5
+      - filter: time_simple_moving_average
+        window_size: "00:01"
+        precision: 2
+
+  - platform: integration
+    source: sensor.studio_desk_w_filtered
+    name: studio_desk_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left   
+    
+utility_meter:   
+  studio_desk_energy_hour:
+    source: sensor.studio_desk_kWh
+    cycle: hourly 
+  studio_desk_energy_day:
+    source: sensor.studio_desk_kWh
+    cycle: daily  
+  studio_desk_energy_mth:
+    source: sensor.studio_desk_kWh
+    cycle: monthly   

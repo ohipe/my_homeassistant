@@ -1,18 +1,18 @@
+
+#
+# Rilevamento finestra aperta CAMERETTA
+#
+
   - alias: Clima__Cameretta_Finestra_aperta_Spegni_tado
     condition:
-      condition: or
-      conditions:
-       - condition: state
-         entity_id: climate.cameretta
-         state: "auto"
-       - condition: state
-         entity_id: climate.cameretta
-         state: "heat"     
+      condition: template
+      value_template: '{{ not is_state("climate.cameretta", "off") }}'     
     trigger:
        platform: state
        entity_id: binary_sensor.door_window_sensor_158d0002d70751
        from: "off"
        to: "on"
+       for: "00:00:15"       
     action:    
      - service: notify.telegram_hass_bot
        data:
@@ -23,15 +23,15 @@
          entity_id: climate.cameretta  
      - service: automation.turn_on
        data:
-         entity_id: automation.clima_cameretta_finestra_chiusa_accendi_tado       
-     
-     
+         entity_id: automation.clima_cameretta_finestra_chiusa_accendi_tado          
+         
   - alias: Clima__Cameretta_Finestra_chiusa_Accendi_tado
     trigger:
        platform: state
        entity_id: binary_sensor.door_window_sensor_158d0002d70751
        from: "on"
        to: "off"
+       for: "00:00:15"       
     action:    
      - service: notify.telegram_hass_bot
        data:
@@ -45,6 +45,57 @@
        data:
          entity_id: automation.clima_cameretta_finestra_chiusa_accendi_tado     
 
+#
+# Rilevamento finestra aperta CAMERA
+#
+
+  - alias: Clima__Camera_Finestra_aperta_Spegni_tado
+    condition:
+      condition: template
+      value_template: '{{ not is_state("climate.camera", "off") }}'   
+    trigger:
+       platform: state
+       entity_id: binary_sensor.door_window_sensor_158d00042e771d
+       from: "off"
+       to: "on"
+       for: "00:00:15"
+    action:    
+     - service: notify.telegram_hass_bot
+       data:
+         title: "*Rilevamento finestra aperta Camera*\n"
+         message: "Riscaldamento SPENTO"
+     - service: climate.turn_off
+       data:
+         entity_id: climate.camera  
+     - service: automation.turn_on
+       data:
+         entity_id: automation.clima_camera_finestra_chiusa_accendi_tado 
+
+  - alias: Clima__Camera_Finestra_chiusa_Accendi_tado
+    trigger:
+       platform: state
+       entity_id: binary_sensor.door_window_sensor_158d00042e771d
+       from: "on"
+       to: "off"
+       for: "00:00:15"       
+    action:    
+     - service: notify.telegram_hass_bot
+       data:
+         title: "*Rilevamento finestra chiusa Camera*\n"
+         message: "Riscaldamento AUTO."
+     - service: climate.set_hvac_mode
+       data:
+         entity_id: climate.camera  
+         hvac_mode: auto
+     - service: automation.turn_off
+       data:
+         entity_id: automation.clima_camera_finestra_chiusa_accendi_tado              
+
+
+#
+# Clima timer boost > auto
+#
+         
   - alias: Clima__Auto_tutti
     trigger:
       platform: event
@@ -69,8 +120,4 @@
         data:
           entity_id: timer.clima_boost
           duration: '00:15:00'            
-      # - delay:
-          # minutes: 15
-      # - service: scene.turn_on
-        # data: 
-          # entity_id: scene.clima_auto_tutti         
+       

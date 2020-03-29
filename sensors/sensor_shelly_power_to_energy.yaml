@@ -1,0 +1,167 @@
+#
+# Integration: power to energy
+#
+
+  # tapparelle
+  - platform: integration
+    source: sensor.tapp_cucina_finestra_w
+    name: tapp_cucina_finestra_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left
+  - platform: integration
+    source: sensor.tapp_cucina_balcone_w
+    name: tapp_cucina_balcone_kWh
+    unit_prefix: k
+    unit_time: h  
+    method: left
+  - platform: integration
+    source: sensor.tapp_studio_w
+    name: tapp_studio_kWh
+    unit_prefix: k
+    unit_time: h 
+    method: left
+  - platform: integration
+    source: sensor.tapp_cameretta_w
+    name: tapp_cameretta_kWh
+    unit_prefix: k
+    unit_time: h 
+    method: left
+  - platform: integration
+    source: sensor.tapp_bagno_w
+    name: tapp_bagno_kWh
+    unit_prefix: k
+    unit_time: h  
+    method: left
+  - platform: integration
+    source: sensor.tapp_soggiorno_fin_esterna_w
+    name: tapp_soggiorno_fin_esterna_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.tapp_soggiorno_balcone_w
+    name: tapp_soggiorno_balcone_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.tapp_soggiorno_fin_interna_w
+    name: tapp_soggiorno_fin_interna_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left  
+  - platform: integration
+    source: sensor.tapp_bagno_camera_w
+    name: tapp_bagno_camera_kWh
+    unit_prefix: k
+    unit_time: h  
+    method: left    
+  - platform: integration
+    source: sensor.tapp_camera_w
+    name: tapp_camera_kWh
+    unit_prefix: k
+    unit_time: h   
+    method: left
+
+  # totale tapparelle
+  - platform: integration
+    source: sensor.tapp_total_w
+    name: tapp_total_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left
+    
+  # luci con shelly25
+  - platform: integration
+    source: sensor.luce_bagno_camera_1_w
+    name: luce_bagno_camera_1_kWh
+    unit_prefix: k
+    unit_time: h 
+    method: left    
+  - platform: integration
+    source: sensor.luce_bagno_camera_2_w
+    name: luce_bagno_camera_2_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.luce_bagno_w
+    name: luce_bagno_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.luce_cameretta_w
+    name: luce_cameretta_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.led_ambiente_soggiorno_w
+    name: led_ambiente_soggiorno_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+
+  # luci template
+  - platform: integration
+    source: sensor.faretti_ingresso_w
+    name: faretti_ingresso_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.faretti_soggiorno_w
+    name: faretti_soggiorno_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.luce_zona_notte_w
+    name: luce_zona_notte_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.lampada_studio_w
+    name: lampada_studio_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.lampada_divano_w
+    name: lampada_divano_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+  - platform: integration
+    source: sensor.luce_nuvoletta_w
+    name: luce_nuvoletta_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left    
+
+  # totale luci
+  - platform: integration
+    source: sensor.luci_total_w
+    name: luci_total_kWh
+    unit_prefix: k
+    unit_time: h
+    method: left
+    
+  # plug-s
+  - platform: integration
+    source: sensor.plug_s_w
+    name: plug_s_kWh
+    unit_prefix: k
+    unit_time: h  
+    method: left    
+    
+  # totale casa misurato Shelly EM
+  - platform: integration
+    source: sensor.home_total_w
+    name: total_kWh
+    unit_prefix: k
+    unit_time: h  
+    method: left 

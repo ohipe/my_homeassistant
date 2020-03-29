@@ -1,0 +1,56 @@
+
+      # manual
+      - type: js
+        url: /local/plugin/card-tools.js
+      - type: js
+        url: /local/plugin/big-number.js
+      - type: js
+        url: /local/plugin/card-modder.js
+      - type: js
+        url: /local/plugin/theme-maker.js
+      - type: module
+        url: /local/plugin/au190_thermostat_card/au190_thermostat_card.js
+      - type: module
+        url: /local/plugin/fold-entity-row.js  
+      - type: module
+        url: /local/plugin/lovelace-thermostat-card/main.js
+      - type: module
+        url: /local/plugin/shutter-cover-panel-card.js
+
+      # hacs  
+      - type: module
+        url: /hacsfiles/button-card/button-card.js
+      - type: module
+        url: /hacsfiles/custom-header/custom-header.js   
+      - type: module
+        url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      - type: module
+        url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      - type: module
+        url: /hacsfiles/simple-thermostat/simple-thermostat.js
+      - type: module
+        url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
+      - type: module
+        url: https://cdn.jsdelivr.net/gh/custom-cards/spotify-card@1.8/dist/spotify-card.umd.js    
+      - type: module
+        url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+      - type: js
+        url: /hacsfiles/bar-card/bar-card.js  
+      - type: module
+        url: /hacsfiles/canvas-gauge-card/canvas-gauge-card.js
+      - type: module
+        url: /hacsfiles/lovelace-card-mod/card-mod.js 
+      - type: module    
+        url: /hacsfiles/lovelace-card-tools/card-tools.js
+      - type: module
+        url: /hacsfiles/lovelace-layout-card/layout-card.js
+      - type: module
+        url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js  
+      - type: module 
+        url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+      - type: js 
+        url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+      - type: module
+        url: /hacsfiles/weather-card/weather-card.js
+    
+   

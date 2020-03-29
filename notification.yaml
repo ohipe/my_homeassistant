@@ -1,0 +1,10 @@
+
+
+  - name: telegram_hass_bot
+    platform: telegram    
+    chat_id: 475199390
+    #api_key: ce44be271b2b27bafa582de3cead9ed4
+    #app_id: 173667
+    #HTTP API: 534933075:AAH-qwxON_Tn_xY3khWhcpGsXzDXh_IXxq8
+    
+

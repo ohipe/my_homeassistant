@@ -1,0 +1,64 @@
+  #
+  # rtsp streaming
+  #
+
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://admin:YYKSIY@192.168.1.111:554/Streaming/Channels/1
+    name: cctv_cucina_rtsp
+ 
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://admin:BHUXLT@192.168.1.112:554/Streaming/channels/1
+    name: cctv_ingresso_rtsp
+
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://admin:WYYQHN@192.168.1.113:554/Streaming/channels/1 -vf "transpose=1"
+    name: cctv_esterno_rtsp
+
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://admin:ISPHNF@192.168.1.114:554/Streaming/channels/1
+    name: cctv_studio_rtsp
+      
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://admin:AXEWIK@192.168.1.115:554/Streaming/channels/1
+    name: cctv_cameretta_rtsp
+    
+  #
+  # snapshot
+  #
+
+  - platform: local_file
+    name: cctv_Cucina_frame
+    file_path: /data/snapshot/cctv_Cucina_frame.jpg
+ 
+  - platform: local_file
+    name: cctv_Studio_frame
+    file_path: /data/snapshot/cctv_Studio_frame.jpg
+    
+  - platform: local_file
+    name: cctv_Cameretta_frame
+    file_path:  /data/snapshot/cctv_Cameretta_frame.jpg
+    
+  - platform: local_file
+    name: cctv_Ingresso_frame
+    file_path: /data/snapshot/cctv_Ingresso_frame.jpg
+    
+  - platform: local_file
+    name: cctv_Esterno_frame
+    file_path: /data/snapshot/cctv_Esterno_frame.jpg
+    
+  # - platform: generic
+    # name: Posizione_gmap
+    # still_image_url: https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:G%7C{{ states.device_tracker.opo_opo.attributes.latitude }},{{ states.device_tracker.opo_opo.attributes.longitude }}
+    # limit_refetch_to_url_change: true
+
+
+  - platform: ezviz
+    username: 'gciriello'
+    password: 'gc@ez00'
+    cameras:
+      C73601813:
+        username: 'admin'
+        password: 'YYKSIY'
+      573768189:
+        username: 'admin'
+        password: 'ISPHNF'        

@@ -1,0 +1,37 @@
+    title: covers
+    path: covers2
+    icon: 'mdi:window-shutter'
+    panel: true
+    badges: []
+    cards:
+      
+    - type: custom:shutter-cover-panel-card
+      title: Tapparelle
+      icon: mdi:window-shutter
+      covercolor: "#66666"
+      buttonText: Tapparelle  
+      # background: transparent
+      innershadow: noenable
+      softui: noenable
+      coverWidth: 55px
+      coverHeight: 220px
+      coverdistance: 100px
+      entities:
+        - entity: cover.finestra_cucina      
+        - entity: cover.balcone_cucina 
+        - entity: cover.balcone_studio
+        - entity: cover.finestra_cameretta
+        - entity: cover.finestra_bagno
+        - entity: cover.finestra_soggiorno_esterno
+        - entity: cover.balcone_soggiorno
+        - entity: cover.finestra_soggiorno_cortile
+        - entity: cover.finestra_bagno_camera
+        - entity: cover.finestra_camera
+      sidebuttons:
+        - entity: script.tapp_apri_tutto
+          name: Apri Tutto
+          label: tapparelle
+          icon: 'mdi:window-shutter-open'
+          cardtype: script
+           
+

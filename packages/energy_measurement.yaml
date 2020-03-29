@@ -1,0 +1,314 @@
+############################################################################################################
+#
+# PACKAGE COSTO ENERGIA
+#
+############################################################################################################
+
+homeassistant:
+  customize:
+    sensor.home_total_w:
+      friendly_name: Potenza istantanea   
+      icon: mdi:home-alert
+
+############################################################################################################
+# sensori monitor consumi 
+############################################################################################################
+
+utility_meter:
+  total_energy_day:
+    source: sensor.total_kWh
+    cycle: daily 
+    tariffs:
+      - f1
+      - f23
+      
+  total_energy_mth:
+    source: sensor.total_kWh
+    cycle: monthly
+    tariffs:
+      - f1
+      - f23
+
+    
+############################################################################################################
+# input number per costi 
+############################################################################################################
+
+input_number:
+  energy_cost_f1:
+    name: Costo KWh Energia F1
+    min: 0.0001
+    max: 0.5000
+    unit_of_measurement: '€'
+    initial: 0.08268
+    mode: box
+    icon: mdi:currency-eur
+  
+  energy_cost_f23:
+    name: Costo KWh Energia F23
+    min: 0.0001
+    max: 0.5000
+    unit_of_measurement: '€'
+    initial: 0.07401
+    mode: box
+    icon: mdi:currency-eur
+
+  energy_cost_gross:
+    name: Costo KWh Energia F23
+    min: 0.01
+    max: 1.50
+    unit_of_measurement: '€'
+    initial: 0.20
+    mode: box
+    icon: mdi:currency-eur
+
+#################################################################################################################################################
+# input_boolean per tariffa weekend 
+#################################################################################################################################################
+
+# input_boolean:
+  # energy_tariffa_weekend:
+    # name: Tariffa Week-end/festivi
+    # icon: mdi:calendar-range
+
+#################################################################################################################################################
+#   orari inizio F1 ed F23  
+#################################################################################################################################################
+
+input_datetime:
+  energy_f1_start:
+    name: "Orario Inizio F1"
+    has_date: false
+    has_time: true
+    initial: '08:00'
+    
+  energy_f23_start:
+    name: "Orario Inizio F23"
+    has_date: false
+    has_time: true
+    initial: '19:00'
+
+#################################################################################################################################################
+# sensore per giorni feriali e festivi  
+#################################################################################################################################################
+
+binary_sensor:
+  - platform: workday
+    name: giorni lavorativi
+    country: IT
+
+#################################################################################################################################################
+#  sensori 
+#################################################################################################################################################
+
+sensor:
+
+  #################################################################################################################################################
+  # Totale consumi KWh (F1+F23)
+  #################################################################################################################################################
+  
+  - platform: template
+    sensors:
+      total_energy_day:
+        friendly_name_template: " Consumo giornaliero"
+        icon_template: mdi:counter
+        value_template: "{{((states.sensor.total_energy_day_f1.state | float) + (states.sensor.total_energy_day_f23.state | float)) | round(3) }}"
+        unit_of_measurement: 'KWh'  
+
+  - platform: template
+    sensors:
+      total_energy_mth:
+        friendly_name_template: "Consumo mensile"
+        icon_template: mdi:counter
+        value_template: "{{((states.sensor.total_energy_mth_f1.state | float) + (states.sensor.total_energy_mth_f23.state | float)) | round(3) }}"
+        unit_of_measurement: 'KWh'
+
+  #################################################################################################################################################
+  # Costi giornalieri
+  #################################################################################################################################################
+  
+  - platform: template
+    sensors:
+      energy_cost_day_gross:
+        friendly_name_template: "Costo giornaliero bolletta"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.total_energy_day.state | float) * (states.input_number.energy_cost_gross.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+        
+  - platform: template
+    sensors:
+      energy_cost_day_f1:
+        friendly_name_template: "Costo giornaliero energia F1"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.total_energy_day_f1.state | float) * (states.input_number.energy_cost_f1.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+
+  - platform: template
+    sensors:
+      energy_cost_day_f23:
+        friendly_name_template: "Costo giornaliero energia F2"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.total_energy_day_f23.state | float) * (states.input_number.energy_cost_f23.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+
+  - platform: template
+    sensors:
+      energy_cost_day:
+        friendly_name_template: "Costo giornaliero energia F1+F23"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.energy_cost_day_f1.state | float) + (states.sensor.energy_cost_day_f23.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+        
+  #################################################################################################################################################
+  # Costi mensili
+  #################################################################################################################################################
+  
+  - platform: template
+    sensors:
+      energy_cost_mth_gross:
+        friendly_name_template: "Costo mensile bolletta"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.total_energy_mth.state | float) * (states.input_number.energy_cost_gross.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+        
+  - platform: template
+    sensors:
+      energy_cost_mth_f1:
+        friendly_name_template: "Costo mensile energia F1"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.total_energy_mth_f1.state | float) * (states.input_number.energy_cost_f1.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+
+  - platform: template
+    sensors:
+      energy_cost_mth_f23:
+        friendly_name_template: "Costo mensile energia F2"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.total_energy_mth_f23.state | float) * (states.input_number.energy_cost_f23.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+
+  - platform: template
+    sensors:
+      energy_cost_mth:
+        friendly_name_template: "Costo mensile energia F1+F23"
+        icon_template: mdi:currency-eur
+        value_template: "{{((states.sensor.energy_cost_mth_f1.state | float) + (states.sensor.energy_cost_mth_f23.state| float)) | round(2) }}"
+        unit_of_measurement: '€'
+
+  #################################################################################################################################################
+  # consumi su file  
+  ################################################################################################################################################
+
+  - platform: file
+    name: stored_energy_total_mth
+    file_path: '/data/energy_day.log' 
+    unit_of_measurement: kWh
+  - platform: file
+    name: stored_energy_total_mth
+    file_path: '/data/energy_mth.log' 
+    unit_of_measurement: kWh  
+    
+#################################################################################################################################################
+# automazioni   
+#################################################################################################################################################
+
+automation:
+
+  # 
+  # F1 giorni lavorativi
+  #
+  - alias: Energy__Tariffa_F1
+    initial_state: on
+    trigger:
+      platform: template
+      value_template: >-
+        {{ states('sensor.time') == (states.input_datetime.energy_f1_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}
+    condition:
+      - condition: state
+        entity_id: binary_sensor.giorni_lavorativi
+        state: 'on'
+    action:
+    - service: utility_meter.select_tariff
+      data:
+        entity_id: utility_meter.total_energy_day
+        tariff: f1
+    - service: utility_meter.select_tariff
+      data:
+        entity_id: utility_meter.total_energy_mth
+        tariff: f1
+
+  #
+  # F23 sera
+  #
+  - alias: Energy__Tariffa_F23_sera
+    initial_state: on
+    trigger:
+      platform: template
+      value_template: >-
+        {{ states('sensor.time') == (states.input_datetime.energy_f23_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}
+    condition:
+      - condition: state
+        entity_id: binary_sensor.giorni_lavorativi
+        state: 'on'
+    action:
+    - service: utility_meter.select_tariff
+      data:
+        entity_id: utility_meter.total_energy_day
+        tariff: f23
+    - service: utility_meter.select_tariff
+      data:
+        entity_id: utility_meter.total_energy_mth
+        tariff: f23
+
+  #
+  # F23 festivi
+  # 
+  - alias: Energy__Tariffa_F23_festivi
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.giorni_lavorativi
+      to: 'off'
+    action:
+    - service: utility_meter.select_tariff
+      data:
+        entity_id: utility_meter.total_energy_day
+        tariff: f2
+    - service: utility_meter.select_tariff
+      data:
+        entity_id: utility_meter.total_energy_mth
+        tariff: f2
+
+#
+# salvataggio consumi su file  
+#
+  - alias: "Energy__Store_day"
+    initial_state: true
+    trigger:
+      platform: time
+      at: '23:59'
+    action:
+      - service: notify.store_energy_total_day
+        data_template:
+          message: >
+            { "timestamp": "{{ now().strftime( '%D') }}" , "value": "{{ states('sensor.total_energy_day') }}" }
+
+          
+#################################################################################################################################################
+# salvataggio consumi su file  
+################################################################################################################################################
+
+notify:
+  - name: store_energy_total_day
+    platform: file
+    filename: /data/energy_day.log
+    timestamp: true  
+  - name: store_energy_total_mth
+    platform: file
+    filename: /data/energy_mth.log
+    timestamp: true  
+
+
+
+
+    

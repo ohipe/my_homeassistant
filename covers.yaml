@@ -1,0 +1,100 @@
+ 
+  - platform: mqtt
+    name: "Finestra cucina"
+    command_topic: "shellies/shellyswitch25-730477/roller/0/command"
+    position_topic: "shellies/shellyswitch25-730477/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-730477/roller/0/command/pos" 
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}' 
+
+  - platform: mqtt
+    name: "Balcone cucina"
+    command_topic: "shellies/shellyswitch25-7402D2/roller/0/command"
+    position_topic: "shellies/shellyswitch25-7402D2/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-7402D2/roller/0/command/pos" 
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}' 
+    
+  - platform: mqtt
+    name: "Balcone studio"
+    command_topic: "shellies/shellyswitch25-744D46/roller/0/command"
+    position_topic: "shellies/shellyswitch25-744D46/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-744D46/roller/0/command/pos" 
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}'
+
+  - platform: mqtt
+    name: "Finestra cameretta"
+    command_topic: "shellies/shellyswitch25-7454E1/roller/0/command"
+    position_topic: "shellies/shellyswitch25-7454E1/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-7454E1/roller/0/command/pos"
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}'
+
+  - platform: mqtt
+    name: "Finestra bagno"
+    command_topic: "shellies/shellyswitch25-740435/roller/0/command"
+    position_topic: "shellies/shellyswitch25-740434/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-740434/roller/0/command/pos"
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}'    
+    
+  - platform: mqtt
+    name: "Finestra soggiorno esterno"
+    command_topic: "shellies/shellyswitch25-73F95E/roller/0/command"
+    position_topic: "shellies/shellyswitch25-73F95E/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-73F95E/roller/0/command/pos"
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}'
+    
+  - platform: mqtt
+    name: "Balcone soggiorno"
+    command_topic: "shellies/shellyswitch25-73C7AB/roller/0/command"
+    position_topic: "shellies/shellyswitch25-73C7AB/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-73C7AB/roller/0/command/pos"
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}'
+
+  - platform: mqtt
+    name: "Finestra soggiorno cortile"
+    command_topic: "shellies/shellyswitch25-745656/roller/0/command"
+    position_topic: "shellies/shellyswitch25-745656/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-745656/roller/0/command/pos"
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}'
+
+  - platform: mqtt
+    name: "Finestra bagno camera"
+    command_topic: "shellies/shellyswitch25-7408A9/roller/0/command"
+    position_topic: "shellies/shellyswitch25-7408A9/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-7408A9/roller/0/command/pos"
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}' 
+
+  - platform: mqtt
+    name: "Finestra camera"
+    command_topic: "shellies/shellyswitch25-745B36/roller/0/command"
+    position_topic: "shellies/shellyswitch25-745B36/roller/0/pos"
+    set_position_topic: "shellies/shellyswitch25-745B36/roller/0/command/pos"
+    payload_open: "open"
+    payload_close: "close"
+    payload_stop: "stop"
+    value_template: '{{ value }}' 

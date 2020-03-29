@@ -1,0 +1,202 @@
+  title: Riscaldamento
+  path: riscaldamento  
+  icon: 'mdi:thermostat'
+  panel: true  
+  badges: []
+  cards:
+    - type: custom:layout-card
+      layout: vertical
+      column_width: [24%, 19%, 19%, 19%, 19%] 
+      cards:
+        - type: custom:button-card
+          entity: scene.clima_auto_tutti
+          layout: icon_name
+          show_icon: true          
+          icon: 'mdi:calendar-clock'
+          show_name: true
+          name: Auto          
+          tap_action:
+            action: call-service
+            service: automation.trigger
+            service_data:
+              entity_id: automation.clima_auto_tutti  
+            # confirmation:
+              # text: 'Vuoi impostare tutti i caloriferi in modalita AUTO?'
+        - type: custom:button-card
+          entity: timer.clima_boost
+          color_type: icon
+          layout: icon_name_state2nd
+          show_name: true          
+          name: Boost 15 min
+          show_icon: true
+          icon: 'mdi:fire'                    
+          show_label: true
+          show_state: true
+          state:
+            - value: 'idle'
+              styles:
+                state:
+                  - color: white
+                icon:
+                  - color: white                  
+            - value: 'active'
+              styles:
+                state:
+                  - color: '#ffa500'
+                icon:
+                  - color: '#ffa500'                      
+          tap_action:
+            action: call-service
+            service: automation.trigger
+            service_data:
+              entity_id: automation.clima_boost_15_minuti  
+            # confirmation:
+              # text: 'Vuoi impostare tutti i caloriferi al MASSIMO per 15 minuti?'  
+          hold_action:
+            action: more-info              
+        - type: custom:button-card
+          entity: scene.clima_spegni_tutti
+          hold_action:
+            action: more-info
+          layout: icon_name
+          icon: 'mdi:circle-off-outline'
+          name: Spegni tutti
+          show_icon: true
+          show_name: true
+          tap_action:
+            action: call-service
+            service: scene.turn_on
+            service_data:
+              entity_id: scene.clima_spegni_tutti 
+            # confirmation:
+              # text: 'Vuoi spegnere tutti i caloriferi?'
+
+        - type: entities
+          entities:
+          - type: custom:multiple-entity-row
+            entity: sensor.cucina_temperature_offset
+            name: Cucina
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d00022728f3
+                name: false     
+          - type: custom:multiple-entity-row
+            entity: sensor.cameretta_temperature_offset
+            name: Cameretta
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d000224cd0d
+                name: false  
+          - type: custom:multiple-entity-row
+            entity: sensor.bagno_temperature_offset
+            name: Bagno
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d00022725fa
+                name: false  
+          - type: custom:multiple-entity-row
+            entity: sensor.studio_temperature_offset
+            name: Studio
+            show_state: false
+            secondary_info:
+              attribute: celsius
+              name: offset
+              unit: ''
+            entities:
+              - entity: sensor.temperature_158d0002288471
+                name: false      
+            
+        - break
+ 
+        - type: 'custom:thermostat-card'
+          entity: climate.cucina
+          title: Cucina
+          step: 1
+          small_i: true
+          highlight_tap: true          
+        - type: 'custom:thermostat-card'
+          entity: climate.cucinotto
+          title: Cucinotto
+          step: 1
+          small_i: true
+          highlight_tap: true  
+        - type: 'custom:thermostat-card'
+          entity: climate.studio
+          title: Studio 
+          step: 1
+          small_i: true
+          highlight_tap: true 
+          
+        - break
+
+        - type: 'custom:thermostat-card'
+          entity: climate.zona_notte
+          title: ZonaNotte
+          step: 1
+          small_i: true
+          highlight_tap: true          
+        - type: 'custom:thermostat-card'
+          entity: climate.cameretta
+          title: Cameretta
+          step: 1
+          small_i: true
+          highlight_tap: true          
+        - type: 'custom:thermostat-card'
+          entity: climate.bagno
+          title: Bagno
+          step: 1
+          small_i: true
+          highlight_tap: true          
+          
+        - break
+
+        - type: 'custom:thermostat-card'
+          entity: climate.camera
+          title: Camera
+          step: 1
+          small_i: true
+          highlight_tap: true
+        - type: 'custom:thermostat-card'
+          entity: climate.camera_bagno
+          title: BagnoPriv
+          step: 1
+          small_i: true
+          highlight_tap: true
+   
+        - break
+
+        - type: 'custom:thermostat-card'
+          entity: climate.ingresso
+          title: Ingresso 
+          step: 1
+          small_i: true
+          highlight_tap: true         
+        - type: 'custom:thermostat-card'
+          entity: climate.soggiorno
+          title: SoggTavolo
+          step: 1
+          small_i: true
+          highlight_tap: true
+        - type: 'custom:thermostat-card'
+          entity: climate.soggiorno_divano
+          title: SoggDivano
+          step: 1
+          small_i: true
+          highlight_tap: true          
+
+              
+   
+      
+    

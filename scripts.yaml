@@ -1,0 +1,167 @@
+
+  tapp_apri_tutto:
+    alias: "Apri tutto"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio, cover.finestra_cameretta, cover.finestra_bagno, cover.finestra_soggiorno_cortile, cover.finestra_soggiorno_esterno, cover.balcone_soggiorno, cover.finestra_camera, cover.finestra_bagno_camera
+         position: 100
+
+  tapp_chiudi_tutto:
+    alias: "Chiudi Tutto"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio, cover.finestra_cameretta, cover.finestra_bagno, cover.finestra_soggiorno_cortile, cover.finestra_soggiorno_esterno, cover.balcone_soggiorno, cover.finestra_camera, cover.finestra_bagno_camera
+         position: 0
+
+  tapp_chiudi_principali:
+    alias: "Chiudi principali"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio, cover.balcone_soggiorno
+         position: 0
+
+  tapp_apri_principali:
+    alias: "Apri principali"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio, cover.balcone_soggiorno
+         position: 100           
+         
+  tapp_mattino:
+    alias: "Mattina"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio
+         position: 30
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_bagno, cover.finestra_soggiorno_cortile, cover.finestra_soggiorno_esterno, cover.balcone_soggiorno, cover.finestra_camera, cover.finestra_bagno_camera
+         position: 100
+         
+  tapp_pomeriggio:
+    alias: "Pomeriggio"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio
+         position: 100
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_bagno
+         position: 50           
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_soggiorno_cortile, cover.finestra_soggiorno_esterno, cover.balcone_soggiorno, cover.finestra_camera, cover.finestra_bagno_camera
+         position: 30
+
+  tapp_tramonto:
+    alias: "Tramonto"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio
+         position: 100
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_soggiorno_esterno, cover.finestra_bagno
+         position: 80           
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_soggiorno_cortile, cover.balcone_soggiorno, cover.finestra_camera, cover.finestra_bagno_camera
+         position: 15
+         
+  tapp_notte:
+    alias: "Notte"
+    sequence:
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio
+         position: 5
+    - service: cover.set_cover_position
+      data_template:
+         entity_id: cover.finestra_cameretta, cover.finestra_bagno, cover.finestra_soggiorno_cortile, cover.finestra_soggiorno_esterno, cover.balcone_soggiorno, cover.finestra_camera, cover.finestra_bagno_camera
+         position: 15
+
+  tapp_stop_tutte:
+    alias: "STOP"
+    sequence:
+    - service: cover.stop_cover
+      data:
+         entity_id: cover.finestra_cucina, cover.balcone_cucina, cover.balcone_studio, cover.finestra_cameretta, cover.finestra_bagno, cover.finestra_soggiorno_cortile, cover.finestra_soggiorno_esterno, cover.balcone_soggiorno, cover.finestra_camera, cover.finestra_bagno_camera  
+         
+  cctv_update_frames:
+    sequence:
+    - service: automation.trigger
+      entity_id: automation.update_cctv_snapshot
+     
+  notify_to_telegram_hass_bot:
+    sequence:
+    - service: automation.trigger
+      entity_id: notify.telegram_hass_bot
+     
+  ifttt_notify:
+    sequence:
+    - service: ifttt.trigger
+      data_template:
+        event: hass_startup
+
+  ifttt_test:
+    sequence:
+    - service: ifttt.trigger
+      data_template:
+        event: test_command
+       
+  ifttt_ez_ingresso_motion_on:
+    alias: Attiva telecamera Ingresso
+    sequence:
+    - service: ifttt.trigger
+      data_template:
+        event: ez_ingresso_motion_on     
+        
+      
+  tv_command_menu_home:
+    alias: TV Home button
+    sequence:
+      service: switch.broadlink_send_packet_192_168_1_102
+      data:
+        packet:
+        - JgB4AFgdEBwQDg8OEBweDg8PEA0PDxANDw8PDhANEQ0fHB4cHxwPDw8ACrJZHBAcDw8PDg8dHg4QDhANDw8PDg8PDw4PDw8OHh0eHB4dDw8PAAqzWB0PHQ8ODw8QHB4ODw4QDg8ODw8PDg8PDw4QDh4cHxweHQ8OEAANBQ==
+       
+  '1548544949517':
+     alias: HassRestart
+     sequence:
+     - data: {}
+       service: homeassistant.restart
+     
+  camino:
+    alias: Camino (MiBox3)
+    sequence:
+    - service: media_extractor.play_media
+      data:
+        entity_id: media_player.mibox3
+        media_content_type: video
+        media_content_id: https://www.youtube.com/watch?v=L_LUpnjgPso
+    - service: light.turn_on
+      data:
+        entity_id: light.led_ambiente_soggiorno
+        color_name: red
+        brightness_pct: 50     
+        
+  acquario:
+    alias: Acquario
+    sequence:
+    - service: media_extractor.play_media
+      data:
+        entity_id: media_player.mibox3
+        media_content_type: video
+        media_content_id: https://www.youtube.com/watch?v=ZAouh6jstiE
+    - service: light.turn_on
+      data:
+        entity_id: light.led_ambiente_soggiorno
+        color_name: cyan
+        brightness_pct: 50         

@@ -1,0 +1,83 @@
+
+  title: System monitor
+  path: sysmon  
+  icon: 'mdi:alert-box-outline'
+  panel: true  
+  badges: []
+  cards:
+  - type: vertical-stack
+    cards:
+
+    - type: horizontal-stack
+      cards:         
+      - type: gauge
+        title: Utilizzo CPU
+        entity: sensor.processor_use
+        severity:
+          green: 0
+          yellow: 65
+          red: 80       
+      - type: gauge
+        title: Memoria in uso
+        entity: sensor.memory_use_percent
+        severity:
+          green: 0
+          yellow: 65
+          red: 80
+        # style: |
+          # ha-card { 
+            # padding-bottom: 26px;
+          # }
+      - type: gauge
+        title: Riempimento /root
+        entity: sensor.disk_use_percent
+        severity:
+          green: 0
+          yellow: 65
+          red: 80
+          
+    - type: horizontal-stack
+      cards:  
+      - type: entities
+        entities:
+        - sensor.last_boot
+        - sensor.memory_free 
+        - entity: sensor.home_assistant_v2_db
+          name: DB Size
+        - entity: sensor.home_assistant_log
+          name: Log Size
+      - type: entities
+        entities:        
+        - sensor.rpi_power_status
+        - sensor.speedtest_download
+        - sensor.speedtest_upload
+        - sensor.speedtest_ping
+          
+    - type: custom:auto-entities
+      card:
+        type: custom:bar-card
+        columns: 2
+        height: 15px
+        padding: 2px
+        severity:
+        - value: 33
+          color: '#bf4040'
+        - value: 66
+          color: '#bf9540'
+        - value: 100
+          color: '#40bf40'
+        style: |
+          .card-header {
+            font-size: 14px;
+          }             
+      filter:
+        include:
+        - entity_id: "*battery*" 
+        exclude:
+        - entity_id: "*ONEPLUS*"
+        - entity_id: "*OP6*"        
+      sort:
+        method: state 
+        reverse: true          
+      
+      

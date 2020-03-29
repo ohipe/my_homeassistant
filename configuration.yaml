@@ -1,0 +1,181 @@
+homeassistant:
+  name: SmartHome
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: metric
+  time_zone: Europe/Rome
+  packages: !include_dir_named packages
+  customize: !include customize.yaml
+  whitelist_external_dirs:
+    - /home/homeassistant/.homeassistant
+    - /home/homeassistant/.homeassistant/snapshot
+    - /home/homeassistant/.homeassistant/www
+    - /data
+
+config:
+  
+# Cloud
+cloud:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - xiaomi_gw
+    - yeelight
+
+# Enables the frontend
+frontend:
+  themes: !include_dir_merge_named themes 
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123    
+  
+# View all events in a logbook
+# logbook:
+
+logger:
+  default: error
+  logs:
+    recorder: warning
+    pychromecast: critical
+    # custom_components.sonoff: debug
+    # custom_components.switch.sonoff: debug
+    homeassistant.components.sensor: fatal
+    homeassistant.components.rest.sensor: fatal
+    homeassistant.components.command_line.sensor: fatal
+    homeassistant.components.websocket_api: fatal
+    homeassistant.components.input_number: fatal
+    homeassistant.components.template.sensor: fatal
+    homeassistant.components.media_player: fatal
+    homeassistant.components.camera: fatal
+
+lovelace:
+   mode: yaml
+   resources: !include ui-lovelace-resource.yaml
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Enables support for tracking state changes over time
+history:
+  include: !include recorder_include.yaml
+      
+recorder:
+  purge_keep_days: 7
+  purge_interval: 1
+  include: !include recorder_include.yaml
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - upload
+    - download
+   
+system_health:
+
+#################################################################
+## Components
+#################################################################
+       
+ffmpeg:
+    
+google:
+  client_id: !secret g_client_id
+  client_secret: !secret g_client_secret
+  track_new_calendar: false
+
+hacs:
+  token: !secret hacs_token
+  
+#ifttt:
+#  key: !secret ifttt_key
+
+input_boolean:
+  movimento_box_auto:
+    name: Movimento Box Auto
+    initial: off
+    icon: mdi:car
+
+# per eseguire straming tipo video youtube
+media_extractor:
+
+# server protocollo MQTT
+mqtt:
+  broker: 192.168.1.61
+
+#sonoff:
+# username: !secret sonoff_username
+# password: !secret sonoff_password
+
+spotcast:
+  username: !secret spotify_username
+  password: !secret spotify_password
+  
+sun:    
+
+tado:
+  username: !secret tado_key
+  password: !secret tado_pwd
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id1
+
+timer:
+  clima_boost:
+    duration: '00:15:00'
+tts:
+  - platform: google_translate
+    service_name: google_say
+    language: 'it'
+
+updater:
+  include_used_components: true  
+  
+xiaomi_aqara: 
+  discovery_retry: 10
+  gateways: 
+    - mac: !secret xiaomi_mac
+      host: 192.168.1.92
+      key: !secret xiaomi_key  
+      
+yeelight:
+  devices:
+    192.168.1.164:
+      name: Lampada Studio
+      transition: 1000
+    
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api
+    mode: daily   
+
+
+#################################################################
+## Includes
+#################################################################
+
+automation: !include_dir_merge_list automations 
+binary_sensor: !include binary_sensor.yaml
+camera: !include camera.yaml
+cover: !include covers.yaml
+input_select: !include input_select.yaml 
+light: !include light.yaml
+notify: !include notification.yaml
+scene: !include scene.yaml
+script: !include scripts.yaml
+shell_command: !include command.yaml
+sensor: !include_dir_merge_list sensors
+utility_meter: !include utility_meter.yaml
+
+
+

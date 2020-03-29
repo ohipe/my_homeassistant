@@ -1,0 +1,196 @@
+  # #########################################################################################
+  # # Xiaomi
+  # #########################################################################################
+  
+    sensor.temperature_158d0002288471:
+      friendly_name: T Studio
+    sensor.temperature_158d00022725fa: 
+      friendly_name: T Bagno
+    sensor.temperature_158d00022728f3:
+      friendly_name: T Cucina
+    sensor.temperature_158d000224cd0d:
+      friendly_name: T Cameretta
+    sensor.humidity_158d0002288471:
+      friendly_name: Umid studio
+    sensor.humidity_158d00022725fa: 
+      friendly_name: Umid bagno
+    sensor.humidity_158d00022728f3:
+      friendly_name: Umid cucina
+    sensor.humidity_158d000224cd0d:
+      friendly_name: Umid cameretta 
+
+    binary_sensor.door_window_sensor_158d00042e771d:
+      friendly_name: Finestra Camera
+    binary_sensor.door_window_sensor_158d0002d70751:
+      friendly_name: Finestra Cameretta
+    binary_sensor.door_window_sensor_158d0002d70614:
+      friendly_name: Armadio Ingresso      
+
+  # #########################################################################################
+  # # Shelly - Rollers - ENERGY
+  # #########################################################################################
+      
+    sensor.tapp_cucina_finestra_energy_day:
+      friendly_name: Tapp cucina finestra    
+    sensor.tapp_cucina_balcone_energy_day:
+      friendly_name: Tapp cucina balcone 
+    sensor.tapp_studio_energy_day:
+      friendly_name: Tapp studio 
+    sensor.tapp_cameretta_energy_day:
+      friendly_name: Tapp cameretta 
+    sensor.tapp_bagno_energy_day:
+      friendly_name: Tapp bagno 
+    sensor.tapp_soggiorno_fin_esterna_energy_day:
+      friendly_name: Tapp soggiorno finestra esterna 
+    sensor.tapp_soggiorno_balcone_energy_day:
+      friendly_name: Tapp soggiorno balcone 
+    sensor.tapp_soggiorno_fin_interna_energy_day:
+      friendly_name: Tapp soggiorno finestra cortile 
+    sensor.tapp_bagno_camera_energy_day:
+      friendly_name: Tapp bagno camera 
+    sensor.tapp_camera_energy_day:
+      friendly_name: Tapp camera 
+        
+    sensor.tapp_cucina_finestra_energy_mth:
+      friendly_name: Tapp cucina finestra    
+    sensor.tapp_cucina_balcone_energy_mth:
+      friendly_name: Tapp cucina balcone 
+    sensor.tapp_studio_energy_mth:
+      friendly_name: Tapp studio 
+    sensor.tapp_cameretta_energy_mth:
+      friendly_name: Tapp cameretta 
+    sensor.tapp_bagno_energy_mth:
+      friendly_name: Tapp bagno 
+    sensor.tapp_soggiorno_fin_esterna_energy_mth:
+      friendly_name: Tapp soggiorno finestra esterna 
+    sensor.tapp_soggiorno_balcone_energy_mth:
+      friendly_name: Tapp soggiorno balcone 
+    sensor.tapp_soggiorno_fin_interna_energy_mth:
+      friendly_name: Tapp soggiorno finestra cortile 
+    sensor.tapp_bagno_camera_energy_mth:
+      friendly_name: Tapp bagno camera 
+    sensor.tapp_camera_energy_mth:
+      friendly_name: Tapp camera     
+
+    sensor.tapp_total_energy_day:
+      friendly_name: Tapparelle 
+    sensor.tapp_total_energy_mth:
+      friendly_name: Tapparelle 
+      
+  # #########################################################################################
+  # # Shelly - light - ENERGY
+  # #########################################################################################
+    
+    sensor.luce_bagno_camera_1_energy_day:
+      friendly_name: Bagno camera lavabo  
+    sensor.luce_bagno_camera_2_energy_day:
+      friendly_name: Bagno camera doccia       
+    sensor.luce_cameretta_energy_day:
+      friendly_name: Lampadario cameretta 
+    sensor.luce_bagno_energy_day:
+      friendly_name: Luce bagno     
+    sensor.luce_led_ambiente_soggiorno_energy_day:
+      friendly_name: LED ambiente soggiorno   
+      
+    sensor.luce_bagno_camera_1_energy_mth:
+      friendly_name: Bagno camera lavabo  
+    sensor.luce_bagno_camera_2_energy_mth:
+      friendly_name: Bagno camera doccia       
+    sensor.luce_cameretta_energy_mth:
+      friendly_name: Lampadario cameretta 
+    sensor.luce_bagno_energy_mth:
+      friendly_name: Luce bagno     
+    sensor.luce_led_ambiente_soggiorno_energy_mth:
+      friendly_name: LED ambiente soggiorno 
+
+    sensor.luci_total_energy_day:
+      friendly_name: Luci 
+    sensor.luci_total_energy_mth:
+      friendly_name: Luci 
+
+  # #########################################################################################
+  # # Shelly - Plug-s - ENERGY/DAY
+  # #########################################################################################
+  
+    sensor.plug_s_energy_day:
+      friendly_name: Frigorifero  
+    sensor.plug_s_energy_mth:
+      friendly_name: Frigorifero  
+      
+  # #########################################################################################
+  # Potenza assorbita
+  # #########################################################################################
+    
+    # tapparelle
+    sensor.tapp_cucina_finestra_w:
+      friendly_name: Tapp cucina finestra
+    sensor.tapp_cucina_balcone_w:
+      friendly_name: Tapp cucina balcone
+    sensor.tapp_studio_w:
+      friendly_name: Tapp studio 
+    sensor.tapp_cameretta_w:
+      friendly_name: Tapp cameretta   
+    sensor.tapp_bagno_w:
+      friendly_name: Tapp bagno
+    sensor.tapp_soggiorno_fin_esterna_w:
+      friendly_name: Tapp soggiorno finestra esterna
+    sensor.tapp_soggiorno_balcone_w:
+      friendly_name: Tapp soggiorno balcone
+    sensor.tapp_soggiorno_fin_interna_w:
+      friendly_name: Tapp soggiorno finestra interna
+    sensor.tapp_bagno_camera_w:
+      friendly_name: Tapp bagno camera
+    sensor.tapp_camera_w:
+      friendly_name: Tapp camera
+    
+    # totale tapparelle 
+    sensor.tapp_total_w:
+      friendly_name: Potenza totale Tapparelle    
+    
+    # luci con shelly25
+    sensor.luce_bagno_camera_1_w:
+      friendly_name: Luce Bagno Lavabo
+    sensor.luce_bagno_camera_2_w:
+      friendly_name: Luce Bagno Doccia
+    sensor.luce_bagno_w:
+      friendly_name: Luce Bagno
+    sensor.luce_cameretta_w:
+      friendly_name: Lampadario Cameretta
+    sensor.led_ambiente_soggiorno_w:
+      friendly_name: Led Ambiente soggiorno
+    
+    # luci template
+    sensor.faretti_ingresso_w:
+      friendly_name: Faretti Ingresso
+      icon: mdi:google-circles-communities
+    sensor.faretti_soggiorno_w:
+      friendly_name: Faretti Soggiorno
+      icon: mdi:google-circles-communities
+    sensor.luce_zona_notte_w:
+      friendly_name: Luca Zona Notte
+      icon: mdi:wall-sconce-flat
+    sensor.lampada_studio_w:
+      friendly_name: Lampada Studio
+      icon: mdi:floor-lamp
+    sensor.lampada_divano_w:
+      friendly_name: Lampada Divano
+      icon: mdi:floor-lamp
+    sensor.luce_nuvoletta_w:
+      friendly_name: Luce Nuvoletta
+      icon: mdi:cloud      
+    
+    # totale luci
+    sensor.luci_total_w:
+      friendly_name: Potenza totale Luci
+      icon: mdi:lightbulb-group
+    
+    # plug-s
+    sensor.plug_s_w:
+      friendly_name: Frigorifero
+      icon: mdi:fridge
+    
+    # totale
+    sensor.total_w:
+      friendly_name: Potenza totale
+      
+    

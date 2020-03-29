@@ -1,0 +1,54 @@
+homeassistant:
+  customize:
+    device_tracker.oneplus_a6003:
+       # icon: mdi:home-assistant
+       friendly_name: Giuseppe_OP6
+       
+device_tracker:
+  - platform: ping
+    hosts:
+      giuseppe: 192.168.1.91
+      giusy: 192.168.1.92
+      
+# Companion app integration
+mobile_app:   
+
+sensor:
+  - platform: template
+    sensors:
+      giuseppe_battery:
+        friendly_name: Batteria OP6
+        unit_of_measurement: '%'
+        value_template: >-
+          {{state_attr('device_tracker.oneplus_a6003','battery_level')}} 
+        icon_template: >-
+          {% set battery = state_attr('device_tracker.oneplus_a6003','battery_level') %}
+          {%- if battery <= 5 %}
+            mdi:battery-outline
+          {% elif battery >= 95 %}
+            mdi:battery
+          {% elif battery > 5 %}
+            mdi:battery-{{(battery|float/10)|round*10}}
+          {% else %}
+            mdi:battery-unknown
+          {%- endif %}
+      giuseppe_wifi:
+        friendly_name: Wifi Giuseppe
+        value_template: >-
+          {{states('device_tracker.giuseppe')}} 
+        icon_template: >-
+          {%- if is_state('device_tracker.giuseppe','home') %}
+            mdi:wifi
+          {% else %}
+            mdi:wifi-off
+          {%- endif %}
+      giusy_wifi:
+        friendly_name: Wifi Giusy
+        value_template: >
+          {{states('device_tracker.giusy')}} 
+        icon_template: >
+          {%- if is_state('device_tracker.giusy','home') %}
+            mdi:wifi
+          {% else %}
+            mdi:wifi-off
+          {%- endif %}            

@@ -1,0 +1,409 @@
+    title: floorplan
+    path: floorplan
+    icon: 'mdi:home'
+    panel: true
+    badges: []
+    cards:
+    - type: custom:layout-card
+      layout: vertical
+      column_width: [15%, 85%]
+      cards:
+        - type: picture-glance
+          image: /local/peppe.jpg
+          entity: device_tracker.giuseppe
+          state_filter:
+            home: ''
+            not_home: grayscale(100%) blur(1px)          
+          entities:
+          - sensor.giuseppe_wifi
+          - sensor.giuseppe_battery
+        - type: picture-glance
+          image: /local/giusy.jpg
+          entity: device_tracker.giusy
+          state_filter:
+            home: grayscale(0%)
+            not_home: grayscale(100%) blur(1px)          
+          entities:
+          - sensor.giusy_wifi
+        - type: picture-glance
+          image: /local/box_auto.png
+          state_filter:
+            home: grayscale(0%)
+            not_home: grayscale(100%) blur(1px)          
+          entities:
+          - binary_sensor.auto_nel_box
+          - sensor.distanza_auto_box
+        - break
+        - type: picture-elements
+          image: /local/pianta_bordo_grigio_2.png
+          style: |
+            ha-card {
+              height: 100%;
+              box-shadow: none;
+              background: #000000;
+            }
+          elements:
+            #
+            ## Ingresso
+            # 
+            - type: state-icon
+              entity: binary_sensor.door_window_sensor_158d0002d70614
+              icon: 'mdi:wardrobe-outline'
+              style:
+                left: 45%
+                top: 46%
+            - type: state-icon
+              entity: camera.cctv_ingresso_frame
+              style:
+                left: 43%
+                top: 57% 
+            - entity: light.faretti_ingresso
+              style:
+                left: 50%
+                top: 50%
+              tap_action:
+                action: toggle
+              type: state-icon
+              icon: 'mdi:google-circles-communities'
+            - entity: light.faretti_soggiorno
+              style:
+                left: 54%
+                top: 50%
+              tap_action:
+                action: toggle
+              type: state-icon
+              icon: 'mdi:google-circles-communities'                 
+            #
+            ## Cucina
+            #
+            - entity: sensor.temperature_158d00022728f3
+              style:
+                left: 33%
+                top: 80%
+              type: state-label 
+            - entity: sensor.cucina_temperature
+              style:
+                left: 27%
+                top: 67%
+              type: state-label 
+            - entity: sensor.plug_s_w
+              style:
+                left: 36%
+                top: 68%
+              type: state-icon                 
+            - entity: cover.balcone_cucina
+              style:
+                background: '#000'
+                color: white
+                left: 22%
+                top: 74%
+              type: state-icon
+            - entity: cover.finestra_cucina
+              style:
+                background: '#000'
+                color: white
+                left: 22%
+                top: 89%
+              type: state-icon
+            - entity: camera.cctv_cucina_frame
+              style:
+                left: 42%
+                top: 69%
+              type: state-icon
+            - entity: camera.cctv_esterno_frame
+              style:
+                border-radius: 10%
+                left: 16%
+                top: 55%
+                transform: rotate(90deg)
+              type: state-icon
+            - entity: media_player.mini
+              icon: 'mdi:google-home'
+              style:
+                left: 32%
+                top: 92%
+              type: state-icon
+            - entity: media_player.cucina
+              icon: 'mdi:cast'
+              style:
+                left: 32%
+                top: 69%
+              type: state-icon              
+            #
+            ## Studio
+            #
+            - entity: sensor.temperature_158d0002288471
+              style:
+                left: 30%
+                top: 38%
+              type: state-label            
+            - entity: cover.balcone_studio
+              style:
+                background: '#000'
+                color: white
+                left: 22%
+                top: 48%
+              type: state-icon 
+            - entity: light.lampada_studio
+              hold_action:
+                action: more-info
+              icon: 'mdi:floor-lamp'
+              style:
+                left: 25%
+                top: 60%
+              tap_action:
+                action: toggle
+              type: state-icon              
+            #
+            ## Cameretta
+            #
+            - entity: cover.finestra_cameretta
+              style:
+                background: '#000'
+                color: white
+                left: 22%
+                top: 19%
+              type: state-icon   
+            - entity: binary_sensor.door_window_sensor_158d0002d70751
+              style:
+                background: '#000'
+                color: white
+                left: 22%
+                top: 25%
+              type: state-icon               
+            - entity: binary_sensor.motion_sensor_158d0001874bc1
+              icon: 'mdi:motion-sensor'
+              style:
+                left: 41%
+                top: 33%
+              type: state-icon            
+            - entity: light.luce_nuvoletta
+              hold_action:
+                action: more-info
+              icon: 'mdi:cloud'
+              style:
+                left: 40%
+                top: 10%
+              tap_action:
+                action: toggle
+              type: state-icon
+            - entity: light.luce_cameretta
+              icon: 'mdi:ceiling-light'
+              style:
+                left: 33%
+                top: 18%
+              tap_action:
+                action: toggle
+              type: state-icon
+            # - entity: climate.cameretta
+              # style:
+                # background: '#000'
+                # left: 26%
+                # top: 22%
+              # type: state-icon
+            - entity: sensor.cameretta_temperature
+              style:
+                left: 27%
+                top: 27%
+              type: state-label
+            - entity: sensor.temperature_158d000224cd0d
+              style:
+                left: 35%
+                top: 10%
+              type: state-label           
+            - entity: camera.cctv_cameretta_rtsp
+              style:
+                border-radius: 10%
+                left: 40%
+                top: 20%
+              type: state-icon
+            - entity: light.luce_zona_notte
+              icon: 'mdi:wall-sconce-flat'
+              style:
+                left: 46%
+                top: 35%
+              tap_action:
+                action: toggle
+              type: state-icon              
+            #
+            ## Bagno
+            #
+            - type: state-icon
+              entity: cover.finestra_bagno
+              style:
+                background: '#000'
+                color: white
+                left: 49%
+                top: 5%            
+            - type: state-icon
+              entity: light.luce_bagno        
+              icon: 'mdi:ceiling-light'
+              style:
+                left: 48%
+                top: 16%
+              tap_action:
+                action: toggle
+            - entity: sensor.temperature_158d00022725fa
+              style:
+                left: 49%
+                top: 23%
+              type: state-label
+            - entity: sensor.bagno_temperature
+              style:
+                left: 49%
+                top: 10%
+              type: state-label                
+            #
+            ## Soggiorno
+            #
+            - entity: light.gateway_light_7811dcb35e9d
+              icon: 'mdi:mdi:circle-slice-8'
+              hold_action:
+                action: more-info
+              style:
+                left: 62%
+                top: 44%
+              tap_action:
+                action: toggle
+              type: state-icon 
+            - entity: light.lampada_divano
+              hold_action:
+                action: more-info
+              style:
+                left: 72%
+                top: 44%
+              tap_action:
+                action: toggle
+              type: state-icon
+              icon: 'mdi:floor-lamp'
+            - entity: light.led_ambiente_soggiorno
+              hold_action:
+                action: more-info
+              style:
+                left: 56%
+                top: 42%
+              tap_action:
+                action: toggle
+              type: state-icon
+              icon: 'mdi:led-strip-variant' 
+            - entity: sensor.soggiorno_temperature
+              style:
+                left: 58%
+                top: 20%
+              type: state-label          
+            # - entity: climate.soggiorno
+              # style:
+                # background: '#000'
+                # left: 56%
+                # top: 20%
+              # type: state-icon      
+            # - entity: climate.soggiorno_divano
+              # style:
+                # background: '#000'
+                # left: 79%
+                # top: 45%
+              # type: state-icon 
+            - entity: sensor.soggiorno_divano_temperature
+              style:
+                left: 77%
+                top: 41%
+              type: state-label              
+            - entity: cover.finestra_soggiorno_cortile
+              style:
+                background: '#000'
+                color: white
+                left: 83%
+                top: 44%
+              type: state-icon
+            - entity: cover.finestra_soggiorno_esterno
+              style:
+                background: '#000'
+                color: white
+                left: 58%
+                top: 13%
+              type: state-icon              
+            - entity: cover.balcone_soggiorno
+              style:
+                background: '#000'
+                left: 77%
+                top: 25%
+              type: state-icon 
+            - entity: media_player.mibox3
+              icon: 'mdi:cast'
+              style:           
+                left: 68%
+                top: 20%
+              type: state-icon
+            - entity: media_player.mini_nero
+              icon: 'mdi:google-home'
+              style:
+                left: 55%
+                top: 30%
+              type: state-icon               
+            #
+            ## Bagno_camera
+            #
+            - entity: cover.finestra_bagno_camera
+              style:
+                background: '#000'
+                color: white
+                left: 83%
+                top: 56%
+              type: state-icon            
+            - entity: light.bagno_camera_1
+              icon: 'mdi:mdi:circle-slice-8'
+              style:
+                left: 77%
+                top: 57%
+              tap_action:
+                action: toggle
+              type: state-icon
+            - entity: light.bagno_camera_2
+              icon: 'mdi:mdi:circle-slice-8'
+              hold_action:
+                action: more-info
+              style:
+                left: 73%
+                top: 57%
+              tap_action:
+                action: toggle
+              type: state-icon
+            - entity: sensor.camera_bagno_temperature
+              style:
+                left: 67%
+                top: 58%
+              type: state-label               
+            #
+            ## Camera
+            #
+            - entity: binary_sensor.door_window_sensor_158d00042e771d
+              style:
+                background: '#000'
+                color: white              
+                left: 83%
+                top: 73%
+              type: state-icon               
+            - entity: media_player.camera
+              icon: 'mdi:cast'
+              style:
+                left: 75%
+                top: 65%
+              type: state-icon
+            - entity: cover.finestra_camera
+              style:
+                background: '#000'
+                color: white
+                left: 83%
+                top: 80%
+              type: state-icon              
+            - entity: sensor.camera_temperature
+              style:
+                left: 77%
+                top: 79%
+              type: state-label
+            # - entity: climate.camera
+              # style:
+                # background: '#000'
+                # left: 79%
+                # top: 75%
+              # type: state-icon                 

@@ -1,0 +1,50 @@
+# #
+# # totalizzatori
+# #
+  # - platform: template
+    # sensors:  
+    
+    # #
+    # # Potenza assorbita istantanea in W
+    # #
+      # tapp_total_w:
+        # value_template: >
+          # {{ (states.sensor.tapp_cucina_finestra_w.state | float + 
+              # states.sensor.tapp_cucina_balcone_w.state | float + 
+              # states.sensor.tapp_studio_w.state | float + 
+              # states.sensor.tapp_cameretta_w.state | float + 
+              # states.sensor.tapp_bagno_w.state | float + 
+              # states.sensor.tapp_soggiorno_fin_esterna_w.state | float + 
+              # states.sensor.tapp_soggiorno_balcone_w.state | float + 
+              # states.sensor.tapp_soggiorno_fin_interna_w.state | float + 
+              # states.sensor.tapp_bagno_camera_w.state | float + 
+              # states.sensor.tapp_camera_w.state | float) | round(3) }}
+        # friendly_name: 'Potenza tapparelle'
+        # unit_of_measurement: 'W'
+
+      # luci_total_w:
+        # value_template: >
+          # {{ (states.sensor.luce_bagno_camera_1_w.state | float + 
+              # states.sensor.luce_bagno_camera_2_w.state | float + 
+              # states.sensor.luce_cameretta_w.state | float + 
+              # states.sensor.luce_bagno_w.state | float + 
+              # states.sensor.faretti_ingresso_w.state | float + 
+              # states.sensor.faretti_soggiorno_w.state | float + 
+              # states.sensor.luce_zona_notte_w.state | float +   
+              # states.sensor.luce_nuvoletta_w.state | float + 
+              # states.sensor.lampada_studio_w.state | float + 
+              # states.sensor.lampada_divano_w.state | float +             
+              # states.sensor.led_ambiente_soggiorno_w.state | float) | round(3) }}
+        # friendly_name: 'Potenza illuminazione'
+        # unit_of_measurement: 'W'  
+
+      # total_w:
+        # value_template: >
+          # {{ (states.sensor.plug_s_w.state | float +
+              # states.sensor.studio_desk_w_filtered.state | float + 
+              # states.sensor.tapp_total_w.state | float + 
+              # states.sensor.luci_total_w.state | float) | round(3) }}
+        # friendly_name: 'Potenza totale attuale'
+        # unit_of_measurement: 'W'       
+
+ 

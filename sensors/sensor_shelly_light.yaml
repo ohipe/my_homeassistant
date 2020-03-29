@@ -1,0 +1,116 @@
+
+#########################################################################################
+# 
+# Shelly 2.5 - Light sensors
+# 
+#########################################################################################
+    
+  # bagno_camera 
+  - platform: mqtt
+    name: luce_bagno_camera_2_w
+    state_topic: "shellies/shellyswitch25-7405BA/relay/0/power"
+    unit_of_measurement: 'W'
+    force_update: true 
+  - platform: mqtt
+    name: luce_bagno_camera_1_w
+    state_topic: "shellies/shellyswitch25-7405BA/relay/1/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: luce_bagno_camera_2_energy
+    # state_topic: "shellies/shellyswitch25-7405BA/relay/0/energy"
+    # unit_of_measurement: 'W-min'      
+  # - platform: mqtt
+    # name: luce_bagno_camera_1_energy
+    # state_topic: "shellies/shellyswitch25-7405BA/relay/1/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: luce_bagno_camera_temp
+    state_topic: "shellies/shellyswitch25-7405BA/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: luce_bagno_camera_overtemp
+    state_topic: "shellies/shellyswitch25-7405BA/overtemperature"   
+
+  # bagno/cameretta 
+  - platform: mqtt
+    name: luce_bagno_w
+    state_topic: "shellies/shellyswitch25-73C6FE/relay/0/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  - platform: mqtt
+    name: luce_cameretta_w
+    state_topic: "shellies/shellyswitch25-73C6FE/relay/1/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: luce_bagno_energy
+    # state_topic: "shellies/shellyswitch25-73C6FE/relay/0/energy"
+    # unit_of_measurement: 'W-min'      
+  # - platform: mqtt
+    # name: luce_cameretta_energy
+    # state_topic: "shellies/shellyswitch25-73C6FE/relay/1/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: luci_zona_notte_temp
+    state_topic: "shellies/shellyswitch25-73C6FE/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: luci_zona_notte_overtemp
+    state_topic: "shellies/shellyswitch25-73C6FE/overtemperature"   
+
+  # LED ambiente soggiorno
+  - platform: mqtt
+    name: led_ambiente_soggiorno_w
+    state_topic: "shellies/shellyrgbw2-B08AB3/color/0/status"
+    unit_of_measurement: 'W'
+    force_update: true
+    value_template: "{{ value_json.power }}"
+  - platform: mqtt
+    name: led_ambiente_soggiorno_overpower
+    state_topic: "shellies/shellyrgbw2-B08AB3/color/0/status"
+    value_template: "{{ value_json.overpower }}"       
+
+    
+#########################################################################################
+# 
+# Shelly 1 - Light Power calculation
+# 
+#########################################################################################
+
+  - platform: template
+    sensors:
+      faretti_ingresso_w:
+        unit_of_measurement: 'W'
+        value_template: '{% if is_state("light.faretti_ingresso", "on") -%} {{ 150 | float }} {%- else -%} 0 {%- endif %}' 
+      faretti_soggiorno_w:
+        unit_of_measurement: 'W'
+        value_template: '{% if is_state("light.faretti_soggiorno", "on") -%} {{ 305 | float }} {%- else -%} 0 {%- endif %}'          
+      luce_zona_notte_w:
+        unit_of_measurement: 'W'
+        value_template: '{% if is_state("light.luce_zona_notte", "on") -%} {{ 10 | float }} {%- else -%} 0 {%- endif %}'            
+      lampada_studio_w:
+        unit_of_measurement: 'W'
+        value_template: '{% if is_state("light.yeelight_mono1_34ce00886e69", "on") -%} {{ 8 | float }} {%- else -%} 0 {%- endif %}'     
+      lampada_divano_w:
+        unit_of_measurement: 'W'
+        value_template: '{% if is_state("light.Lampada_Divano", "on") -%} {{ 4 | float }} {%- else -%} 0 {%- endif %}'   
+      luce_nuvoletta_w:
+        unit_of_measurement: 'W'
+        value_template: '{% if is_state("light.Luce_Nuvoletta", "on") -%} {{ 4 | float }} {%- else -%} 0 {%- endif %}'  
+        
+      luci_total_w:
+        value_template: >
+          {{ (states.sensor.luce_bagno_camera_1_w.state | float + 
+              states.sensor.luce_bagno_camera_2_w.state | float + 
+              states.sensor.luce_cameretta_w.state | float + 
+              states.sensor.luce_bagno_w.state | float + 
+              states.sensor.faretti_ingresso_w.state | float + 
+              states.sensor.faretti_soggiorno_w.state | float + 
+              states.sensor.luce_zona_notte_w.state | float +   
+              states.sensor.luce_nuvoletta_w.state | float + 
+              states.sensor.lampada_studio_w.state | float + 
+              states.sensor.lampada_divano_w.state | float +             
+              states.sensor.led_ambiente_soggiorno_w.state | float) | round(3) }}
+        friendly_name: 'Potenza illuminazione'
+        unit_of_measurement: 'W'  

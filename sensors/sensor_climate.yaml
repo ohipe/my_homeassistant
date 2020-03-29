@@ -1,0 +1,69 @@
+
+
+##################################################################
+# Climate
+##################################################################    
+
+  # - platform: attributes
+    # attribute: temperature
+    # friendly_name: "Temperatura target"
+    # unit_of_measurement: "C"
+    # entities:
+      # - climate.camera
+      # - climate.camera_bagno      
+      # - climate.cameretta
+      # - climate.soggiorno
+      # - climate.soggiorno_divano
+      # - climate.cucina
+      # - climate.bagno
+      # - climate.cucinotto
+      # - climate.zona_notte
+      # - climate.studio
+      # - climate.ingresso
+      
+  # - platform: attributes
+    # attribute: hvac_action
+    # friendly_name: "Stato corrente hvac"
+    # entities:
+      # - climate.camera
+      # - climate.camera_bagno      
+      # - climate.cameretta
+      # - climate.soggiorno
+      # - climate.soggiorno_divano
+      # - climate.cucina
+      # - climate.bagno
+      # - climate.cucinotto
+      # - climate.zona_notte
+      # - climate.studio
+      # - climate.ingresso      
+
+  # - platform: template
+    # sensors:
+      # camera_tado_riscaldamento:
+        # value_template: "{% if states('sensor.camera_heating')|int > 0 %} 1 {% else %} 0 {% endif %}"
+        # icon_template: "{% if states('sensor.camera_heating')|int > 0 %} mdi:radiator {% else %} mdi:radiator-off {% endif %}"
+     
+##################################################################
+# Weather conditions
+##################################################################
+
+  - platform: darksky
+    api_key: e80c90f79e77809de261dd7f2f99d6c9
+    language: 'it'
+    monitored_conditions:
+      - summary
+      - icon
+      - precip_probability
+      - precip_intensity
+      - temperature
+      - temperature_low
+      - temperature_high
+      - apparent_temperature
+      - humidity
+      - pressure
+      - visibility
+      - wind_speed
+      - wind_bearing
+      - uv_index
+      - moon_phase
+    scan_interval: 00:15:00 

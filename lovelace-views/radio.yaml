@@ -1,0 +1,50 @@
+  title: Luci
+  path: radio
+  icon: 'mdi:radio'
+  panel: true
+  badges: []
+  cards:
+    - type: horizontal-stack
+      cards:
+      - type: entities
+        entities:
+        - entity: input_select.radio_player
+        - entity: input_select.radio_station          
+      - type: 'custom:button-card'
+        color_type: card
+        tap_action:
+          action: call-service
+          service: media_player.play_media
+          service_data:
+            media_content_id: 'http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8'
+            media_content_type: 'audio/mp4'          
+            entity_id: >
+              {% if is_state("input_select.radio_player", "Diffusione") %}
+                media_player.diffusione
+              {%-elif is_state("input_select.radio_player", "Cucina") %}
+                media_player.Mini
+              {%-elif is_state("input_select.radio_player", "Soggiorno") %}
+                media_player.Mini_nero
+              {% else %}
+                none
+              {% endif %}            
+        icon: 'mdi:play'
+        name: RadioDeejay
+
+            
+
+
+    # action:
+      # - service: media_player.play_media
+        # data_template:
+          # entity_id: >
+            # {% if is_state("input_select.radio_player", "Diffusione") %}
+              # media_player.diffusione
+            # {%-elif is_state("input_select.radio_player", "Cucina") %}
+              # media_player.Mini
+            # {%-elif is_state("input_select.radio_player", "Soggiorno") %}
+              # media_player.Mini_nero
+            # {% else %}
+              # none
+            # {% endif %}
+          # media_content_id: 'http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8'

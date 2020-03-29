@@ -1,0 +1,74 @@
+  radio_station:
+    name: Radio Station
+    options:
+        - Discoradio
+        - Kiss Kiss
+        - Kiss Kiss 2
+        - Kiss Kiss Italia
+        - Kiss Kiss Napoli
+        - Kiss Kiss Napoli 2
+        - m2o
+        - R101 Diretta
+        - Radio 105
+        - Radio 24
+        - Radio Amore
+        - Radio Capital
+        - Radio Cuore
+        - Radio Deejay
+        - Radio Ibiza
+        - Radio LatteMiele
+        - Radio Margherita
+        - Radio Margherita Giovane
+        - Radio Maria
+        - Radio Marte
+        - Radio Mater
+        - Radio Playstudio
+        - Radio RCS
+        - Radio Sempreviva
+        - Radio Sportiva
+        - Radio Studio Delta
+        - Radio Studio Più
+        - Radio Subasio
+        - Radio Subasio XL
+        - Radio Subasio+
+        - Radio Zeta
+        - Radionorba
+        - Radionorba Music & Sport
+        - Rai GrParlamento
+        - Rai IsoRadio
+        - Rai Radio 1
+        - Rai Radio 2
+        - Rai Radio 3
+        - Rai Radio 4 Light
+        - Rai Radio 5 Classica
+        - Rai Radio 6 Teca
+        - Rai Radio 7 Live
+        - Rai Radio 8 Opera
+        - Rai Südtirol
+        - Ram Power 102.7
+        - RDS 100% Grandi Successi
+        - RGS Radio Grandi Successi
+        - RIN Radio Italia Network
+        - RMC Radio Monte Carlo
+        - RMC2 Radio Monte Carlo 2
+        - RTL
+        - RTL Best
+        - RTL Groove
+        - RTL ItalianStyle
+        - RTL Lounge
+        - RTL Radiofreccia
+        - StudioRadio
+        - Virgin Radio
+        - None
+    initial: None
+    icon: mdi:radio
+  
+  radio_player:
+    name: Radio Player
+    options:
+      - Diffusione
+      - Cucina
+      - Soggiorno
+      - None
+    initial: None
+    icon: mdi:airplay

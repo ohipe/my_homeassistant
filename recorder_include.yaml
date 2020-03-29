@@ -1,0 +1,86 @@
+    domains:
+      - climate
+    entities:
+    
+      # tracker
+      - device_tracker.giuseppe
+      - device_tracker.giusy
+      - sensor.distanza_auto_box
+      - binary_sensor.auto_nel_box
+      
+      # climates sensors
+      - sensor.cucinotto_temperature
+      - sensor.cucina_temperature
+      - sensor.cucina_temperature_offset
+      - sensor.studio_temperature
+      - sensor.studio_temperature_offset
+      - sensor.cameretta_temperature
+      - sensor.cameretta_temperature_offset
+      - sensor.bagno_temperature
+      - sensor.bagno_temperature_offset
+      - sensor.zona_notte_temperature 
+      - sensor.soggiorno_temperature
+      - sensor.soggiorno_divano_temperature
+      - sensor.camera_bagno_temperature
+      - sensor.camera_temperature
+      - sensor.ingresso_temperature   
+      - sensor.cucinotto_humidity
+      - sensor.cucina_humidity
+      - sensor.studio_humidity
+      - sensor.cameretta_humidity
+      - sensor.bagno_humidity
+      - sensor.zona_notte_humidity 
+      - sensor.soggiorno_humidity
+      - sensor.soggiorno_divano_humidity
+      - sensor.camera_bagno_humidity
+      - sensor.camera_humidity
+      - sensor.ingresso_humidity 
+      
+      # power
+      - sensor.tapp_total_w
+      - sensor.luci_total_w
+      - sensor.home_total_w
+      - sensor.plug_s_w 
+      - sensor.studio_desk_w_filtered
+      
+      # energy
+      - sensor.tapp_total_kwh
+      - sensor.luci_total_kwh
+      - sensor.total_kwh
+      - sensor.plug_s_kWh
+      - sensor.studio_desk_kwh
+      
+      # energy meter h-d-M
+      - sensor.luci_total_energy_hour
+      - sensor.tapp_total_energy_hour
+      - sensor.studio_desk_energy_hour
+      - sensor.total_energy_hour
+      - sensor.luci_total_energy_day
+      - sensor.tapp_total_energy_day
+      - sensor.studio_desk_energy_day
+      - sensor.total_energy_day      
+      - sensor.luci_total_energy_mth
+      - sensor.tapp_total_energy_mth
+      - sensor.studio_desk_energy_mth
+      - sensor.total_energy_mth  
+      
+      # sysmon
+      - sensor.disk_use_percent
+      - sensor.db_size
+      - sensor.db_free
+      - sensor.processor_use
+      
+      # window
+      - binary_sensor.door_window_sensor_158d0002d70614 #armadio
+      - binary_sensor.door_window_sensor_158d0002d70751 #cameretta
+      
+      # sensori xiaomi-aqara
+      - sensor.temperature_158d0002288471
+      - sensor.temperature_158d00022725fa 
+      - sensor.temperature_158d00022728f3
+      - sensor.temperature_158d000224cd0d   
+      - sensor.humidity_158d0002288471
+      - sensor.humidity_158d00022725fa 
+      - sensor.humidity_158d00022728f3
+      - sensor.humidity_158d000224cd0d  
+      - sensor.illumination_7811dcb35e9d

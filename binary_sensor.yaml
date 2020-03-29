@@ -1,0 +1,27 @@
+
+#
+# Allerta meteo milano
+#
+  - platform: dpc
+    latitude: 45.4934771
+    longitude: 9.23744    
+    name: DPC Milano
+    istat: '015146'
+    alert: 'gialla'
+    warnings:
+    - temporali_oggi
+    - idraulico_oggi
+    - idrogeologico_oggi
+    - temporali_domani
+    - idraulico_domani
+    - idrogeologico_domani
+    
+#
+# Auto nel box
+#
+  - platform: template
+    sensors: 
+      auto_nel_box:
+        friendly_name: 'Auto nel Box'
+        value_template: >
+          {{ states.sensor.distanza_auto_box.state | float < 200 }}  

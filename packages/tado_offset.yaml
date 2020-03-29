@@ -1,0 +1,131 @@
+homeassistant:
+  customize:
+    sensor.studio_temperature_offset:
+      name: offset
+    sensor.cameretta_temperature_offset:
+      name: offset
+    sensor.bagno_temperature_offset:
+      name: offset    
+    sensor.cucina_temperature_offset:
+      name: offset  
+      
+sensor:
+  # Tado login, retrieve token - as attribute, due to length. Scope used as value arbitrarily
+  - platform: command_line
+    name: Tado Auth
+    scan_interval: 500
+    json_attributes:
+      - access_token
+      - token_type
+      - refresh_token
+      - expires_in
+      - scope
+      - jti      
+    command: 'curl -s "https://auth.tado.com/oauth/token" -d client_id=tado-web-app -d grant_type=password -d scope=home.user -d username="gciriello@gmail.com" -d password="gc@tado00" -d client_secret=wZaRN7rpjn3FoNyF5IFuxg9uMzYJcvOoQ8QWiIqS3hfk6gLhVlG57j5YNoZL2Rtc'
+    value_template: '{{ value_json.scope }}'
+
+  # Get Temperature Offset from Tado
+  - platform: command_line
+    name: Studio temperature offset
+    scan_interval: 60
+    unit_of_measurement: '°C'
+    json_attributes:
+      - celsius
+    command: 'curl -s \"https://my.tado.com/api/v2/devices/VA3455588608/temperatureOffset\" -H \"Authorization: Bearer {{ state_attr(''sensor.tado_auth'', ''access_token'') }}\"'
+    value_template: '{{ value_json.celsius }}'
+  - platform: command_line
+    name: Cameretta temperature offset
+    scan_interval: 60
+    unit_of_measurement: '°C'
+    json_attributes:
+      - celsius
+    command: 'curl -s \"https://my.tado.com/api/v2/devices/VA2727808000/temperatureOffset\" -H \"Authorization: Bearer {{ state_attr(''sensor.tado_auth'', ''access_token'') }}\"'
+    value_template: '{{ value_json.celsius }}'
+  - platform: command_line
+    name: Bagno temperature offset
+    scan_interval: 60
+    unit_of_measurement: '°C'
+    json_attributes:
+      - celsius
+    command: 'curl -s \"https://my.tado.com/api/v2/devices/VA1844974848/temperatureOffset\" -H \"Authorization: Bearer {{ state_attr(''sensor.tado_auth'', ''access_token'') }}\"'
+    value_template: '{{ value_json.celsius }}'
+  - platform: command_line
+    name: Cucina temperature offset
+    scan_interval: 60
+    unit_of_measurement: '°C'
+    json_attributes:
+      - celsius
+    command: 'curl -s \"https://my.tado.com/api/v2/devices/VA1308103936/temperatureOffset\" -H \"Authorization: Bearer {{ state_attr(''sensor.tado_auth'', ''access_token'') }}\"'
+    value_template: '{{ value_json.celsius }}'    
+
+
+shell_command:
+  tado_studio_offset: >
+    curl -X PUT "https://my.tado.com/api/v2/devices/VA3455588608/temperatureOffset" -H "Authorization: Bearer {{ state_attr('sensor.tado_auth', 'access_token') }}" -H "Content-Type: text/plain" --data-raw "{ celsius: {{ (states('sensor.studio_temperature_offset')|round(1) + states('sensor.temperature_158d0002288471')|round(1) - states('sensor.studio_temperature')|round(1)) }} }"
+  tado_cameretta_offset: >
+    curl -X PUT "https://my.tado.com/api/v2/devices/VA2727808000/temperatureOffset" -H "Authorization: Bearer {{ state_attr('sensor.tado_auth', 'access_token') }}" -H "Content-Type: text/plain" --data-raw "{ celsius: {{ (states('sensor.cameretta_temperature_offset')|round(1) + states('sensor.temperature_158d000224cd0d')|round(1) - states('sensor.cameretta_temperature')|round(1)) }} }"    
+  tado_bagno_offset: >
+    curl -X PUT "https://my.tado.com/api/v2/devices/VA1844974848/temperatureOffset" -H "Authorization: Bearer {{ state_attr('sensor.tado_auth', 'access_token') }}" -H "Content-Type: text/plain" --data-raw "{ celsius: {{ (states('sensor.bagno_temperature_offset')|round(1) + states('sensor.temperature_158d00022725fa')|round(1) - states('sensor.bagno_temperature')|round(1)) }} }"
+  tado_cucina_offset: >
+    curl -X PUT "https://my.tado.com/api/v2/devices/VA1308103936/temperatureOffset" -H "Authorization: Bearer {{ state_attr('sensor.tado_auth', 'access_token') }}" -H "Content-Type: text/plain" --data-raw "{ celsius: {{ (states('sensor.cucina_temperature_offset')|round(1) + states('sensor.temperature_158d00022728f3')|round(1) - states('sensor.cucina_temperature')|round(1)) }} }"
+
+automation:
+  - alias: Clima__Tado_Cameretta_offset
+    trigger:
+      platform: template
+      value_template: "{{ (states('sensor.cameretta_temperature')|round(1) - states('sensor.temperature_158d000224cd0d')|round(1))**2 > 0.25 }}"       
+    action:
+      service: shell_command.tado_cameretta_offset
+  - alias: Clima__Tado_Studio_offset
+    trigger:
+      platform: template
+      value_template: "{{ (states('sensor.studio_temperature')|round(1) - states('sensor.temperature_158d0002288471')|round(1))**2 > 0.25 }}"       
+    action:
+      service: shell_command.tado_studio_offset   
+  - alias: Clima__Tado_Bagno_offset
+    trigger:
+      platform: template
+      value_template: "{{ (states('sensor.bagno_temperature')|round(1) - states('sensor.temperature_158d00022725fa')|round(1))**2 > 0.25 }}"       
+    action:
+      service: shell_command.tado_bagno_offset          
+
+
+
+# # Calculate radiator temperature
+  # - platform: template
+    # sensors:
+      # front_bedroom_radiator:
+        # friendly_name: "Tado Front Bedroom Radiator Sensor"
+        # unit_of_measurement: '°C'
+        # value_template: "{{ ((states('sensor.front_bedroom_temperature_2')|float ) - (state_attr('sensor.tado_front_bedroom_offset','celsius')|float))|round(2)}}"
+
+# # Calculate radiator offset required
+  # - platform: template
+    # sensors:
+      # front_bedroom_calculated_offset:
+        # friendly_name: "Front Bedroom Calculated Offset"
+        # unit_of_measurement: '°C'
+        # value_template: "{% if (states('sensor.front_bedroom_temperature_display')|float ) > 0 -%} {{((states('sensor.front_bedroom_temperature_display')|float ) - (states('sensor.front_bedroom_radiator')|float))| round(2)}} {%- else -%} 0 {%- endif %}"
+
+# # Calculate offset difference
+  # - platform: template
+    # sensors:
+      # front_bedroom_offset_difference:
+        # friendly_name: "Front Bedroom Offset Difference"
+        # unit_of_measurement: '°C'
+        # value_template: "{{ ((states('sensor.front_bedroom_calculated_offset')|float ) - (states('sensor.tado_front_bedroom_put_offset')|float))| round(2)}}"
+
+# # Put Offset to Tado
+  # - platform: command_line
+    # name: Tado_Front_Bedroom_Put_Offset
+    # scan_interval: 300000
+    # unit_of_measurement: '°C'
+    # json_attributes:
+      # - celsius
+      # - fahrenheit
+      
+    # command: 'curl -X PUT \"https://my.tado.com/api/v2/devices/VA******/temperatureOffset\" -H \"Authorization: Bearer {{ state_attr(''sensor.tado_auth'', ''access_token'') }}\" -H \"Content-Type: text/plain\" --data-raw \"{celsius: {{ ((states(''sensor.front_bedroom_calculated_offset'')|float))| round(2)}} }\" '
+    # value_template: '{{ value_json.celsius }}'
+
+
+    

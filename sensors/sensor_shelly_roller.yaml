@@ -1,0 +1,248 @@
+
+    
+#########################################################################################
+# 
+# Shelly - Rollers
+# 
+#########################################################################################
+
+  # cucina_finestra           
+  # - platform: mqtt
+    # name: tapp_cucina_finestra_pos
+    # state_topic: "shellies/shellyswitch25-730477/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_cucina_finestra_w
+    state_topic: "shellies/shellyswitch25-730477/relay/power"
+    unit_of_measurement: 'W'
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_cucina_finestra_energy
+    # state_topic: "shellies/shellyswitch25-730477/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_cucina_finestra_temp
+    state_topic: "shellies/shellyswitch25-730477/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_cucina_finestra_overtemp
+    state_topic: "shellies/shellyswitch25-730477/overtemperature"
+
+  # cucina_balcone      
+  # - platform: mqtt
+    # name: tapp_cucina_balcone_pos
+    # state_topic: "shellies/shellyswitch25-7402D2/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_cucina_balcone_w
+    state_topic: "shellies/shellyswitch25-7402D2/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_cucina_balcone_energy
+    # state_topic: "shellies/shellyswitch25-7402D2/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_cucina_balcone_temp
+    state_topic: "shellies/shellyswitch25-7402D2/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_cucina_balcone_overtemp
+    state_topic: "shellies/shellyswitch25-7402D2/overtemperature"
+    
+  # studio      
+  # - platform: mqtt
+    # name: tapp_studio_pos
+    # state_topic: "shellies/shellyswitch25-744D46/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_studio_w
+    state_topic: "shellies/shellyswitch25-744D46/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_studio_energy
+    # state_topic: "shellies/shellyswitch25-744D46/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_studio_temp
+    state_topic: "shellies/shellyswitch25-744D46/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_studio_overtemp
+    state_topic: "shellies/shellyswitch25-744D46/overtemperature"    
+        
+  # cameretta
+  # - platform: mqtt
+    # name: tapp_cameretta_pos
+    # state_topic: "shellies/shellyswitch25-7454E1/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_cameretta_w
+    state_topic: "shellies/shellyswitch25-7454E1/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_cameretta_energy
+    # state_topic: "shellies/shellyswitch25-7454E1/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_cameretta_temp
+    state_topic: "shellies/shellyswitch25-7454E1/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_cameretta_overtemp
+    state_topic: "shellies/shellyswitch25-7454E1/overtemperature"    
+
+  # bagno
+  # - platform: mqtt
+    # name: tapp_bagno_pos
+    # state_topic: "shellies/shellyswitch25-740434/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_bagno_w
+    state_topic: "shellies/shellyswitch25-740434/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_bagno_energy
+    # state_topic: "shellies/shellyswitch25-740434/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_bagno_temp
+    state_topic: "shellies/shellyswitch25-740434/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_bagno_overtemp
+    state_topic: "shellies/shellyswitch25-740434/overtemperature"          
+
+  # soggiorno_fin_esterna
+  # - platform: mqtt
+    # name: tapp_soggiorno_fin_esterna_pos
+    # state_topic: "shellies/shellyswitch25-73F95E/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_soggiorno_fin_esterna_w
+    state_topic: "shellies/shellyswitch25-73F95E/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_soggiorno_fin_esterna_energy
+    # state_topic: "shellies/shellyswitch25-73F95E/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_soggiorno_fin_esterna_temp
+    state_topic: "shellies/shellyswitch25-73F95E/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_soggiorno_fin_esterna_overtemp
+    state_topic: "shellies/shellyswitch25-73F95E/overtemperature" 
+
+  # soggiorno_balcone
+  # - platform: mqtt
+    # name: tapp_soggiorno_balcone_pos
+    # state_topic: "shellies/shellyswitch25-73C7AB/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_soggiorno_balcone_w
+    state_topic: "shellies/shellyswitch25-73C7AB/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_soggiorno_balcone_energy
+    # state_topic: "shellies/shellyswitch25-73C7AB/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_soggiorno_balcone_temp
+    state_topic: "shellies/shellyswitch25-73C7AB/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_soggiorno_balcone_overtemp
+    state_topic: "shellies/shellyswitch25-73C7AB/overtemperature"  
+
+  # soggiorno_fin_interna
+  # - platform: mqtt
+    # name: tapp_soggiorno_fin_interna_pos
+    # state_topic: "shellies/shellyswitch25-745656/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_soggiorno_fin_interna_w
+    state_topic: "shellies/shellyswitch25-745656/relay/power"
+    unit_of_measurement: 'W'
+    force_update: true    
+  # - platform: mqtt
+    # name: tapp_soggiorno_fin_interna_energy
+    # state_topic: "shellies/shellyswitch25-745656/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_soggiorno_fin_interna_temp
+    state_topic: "shellies/shellyswitch25-745656/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_soggiorno_fin_interna_overtemp
+    state_topic: "shellies/shellyswitch25-745656/overtemperature"            
+
+  # bagno_camera
+  # - platform: mqtt
+    # name: tapp_bagno_camera_pos
+    # state_topic: "shellies/shellyswitch25-7408A9/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_bagno_camera_w
+    state_topic: "shellies/shellyswitch25-7408A9/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_bagno_camera_energy
+    # state_topic: "shellies/shellyswitch25-7408A9/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_bagno_camera_temp
+    state_topic: "shellies/shellyswitch25-7408A9/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_bagno_camera_overtemp
+    state_topic: "shellies/shellyswitch25-7408A9/overtemperature"         
+        
+  # camera
+  # - platform: mqtt
+    # name: tapp_camera_pos
+    # state_topic: "shellies/shellyswitch25-745B36/roller/0/pos"
+    # unit_of_measurement: '%'
+  - platform: mqtt
+    name: tapp_camera_w
+    state_topic: "shellies/shellyswitch25-745B36/relay/power"
+    unit_of_measurement: 'W' 
+    force_update: true
+  # - platform: mqtt
+    # name: tapp_camera_energy
+    # state_topic: "shellies/shellyswitch25-745B36/relay/energy"
+    # unit_of_measurement: 'W-min'  
+  - platform: mqtt
+    name: tapp_camera_temp
+    state_topic: "shellies/shellyswitch25-745B36/temperature"
+    unit_of_measurement: 'C'  
+  - platform: mqtt
+    name: tapp_camera_overtemp
+    state_topic: "shellies/shellyswitch25-745B36/overtemperature"         
+        
+
+  #
+  # Potenza assorbita istantanea in W
+  #
+  - platform: template
+    sensors:
+      tapp_total_w:
+        value_template: >
+          {{ (states.sensor.tapp_cucina_finestra_w.state | float + 
+              states.sensor.tapp_cucina_balcone_w.state | float + 
+              states.sensor.tapp_studio_w.state | float + 
+              states.sensor.tapp_cameretta_w.state | float + 
+              states.sensor.tapp_bagno_w.state | float + 
+              states.sensor.tapp_soggiorno_fin_esterna_w.state | float + 
+              states.sensor.tapp_soggiorno_balcone_w.state | float + 
+              states.sensor.tapp_soggiorno_fin_interna_w.state | float + 
+              states.sensor.tapp_bagno_camera_w.state | float + 
+              states.sensor.tapp_camera_w.state | float) | round(3) }}
+        friendly_name: 'Potenza tapparelle'
+        unit_of_measurement: 'W'

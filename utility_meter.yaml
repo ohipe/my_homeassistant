@@ -1,0 +1,211 @@
+
+#########################################################################################
+# 
+# Shelly - Rollers - ENERGY/DAY
+# 
+#########################################################################################
+    
+  tapp_cucina_finestra_energy_day:
+    source: sensor.tapp_cucina_finestra_kWh
+    cycle: daily    
+  tapp_cucina_balcone_energy_day:
+    source: sensor.tapp_cucina_balcone_kWh
+    cycle: daily 
+  tapp_studio_energy_day:
+    source: sensor.tapp_studio_kWh
+    cycle: daily 
+  tapp_cameretta_energy_day:
+    source: sensor.tapp_cameretta_kWh
+    cycle: daily 
+  tapp_bagno_energy_day:
+    source: sensor.tapp_bagno_kWh
+    cycle: daily 
+  tapp_soggiorno_fin_esterna_energy_day:
+    source: sensor.tapp_soggiorno_fin_esterna_kWh
+    cycle: daily 
+  tapp_soggiorno_balcone_energy_day:
+    source: sensor.tapp_soggiorno_balcone_kWh
+    cycle: daily 
+  tapp_soggiorno_fin_interna_energy_day:
+    source: sensor.tapp_soggiorno_fin_interna_kWh
+    cycle: daily 
+  tapp_bagno_camera_energy_day:
+    source: sensor.tapp_bagno_camera_kWh
+    cycle: daily 
+  tapp_camera_energy_day:
+    source: sensor.tapp_camera_kWh
+    cycle: daily 
+      
+  tapp_cucina_finestra_energy_mth:
+    source: sensor.tapp_cucina_finestra_kWh
+    cycle: monthly    
+  tapp_cucina_balcone_energy_mth:
+    source: sensor.tapp_cucina_balcone_kWh
+    cycle: monthly 
+  tapp_studio_energy_mth:
+    source: sensor.tapp_studio_kWh
+    cycle: monthly 
+  tapp_cameretta_energy_mth:
+    source: sensor.tapp_cameretta_kWh
+    cycle: monthly 
+  tapp_bagno_energy_mth:
+    source: sensor.tapp_bagno_kWh
+    cycle: monthly 
+  tapp_soggiorno_fin_esterna_energy_mth:
+    source: sensor.tapp_soggiorno_fin_esterna_kWh
+    cycle: monthly 
+  tapp_soggiorno_balcone_energy_mth:
+    source: sensor.tapp_soggiorno_balcone_kWh
+    cycle: monthly 
+  tapp_soggiorno_fin_interna_energy_mth:
+    source: sensor.tapp_soggiorno_fin_interna_kWh
+    cycle: monthly 
+  tapp_bagno_camera_energy_mth:
+    source: sensor.tapp_bagno_camera_kWh
+    cycle: monthly 
+  tapp_camera_energy_mth:
+    source: sensor.tapp_camera_kWh
+    cycle: monthly        
+
+#########################################################################################
+# 
+# Shelly25 - Light
+# 
+#########################################################################################
+    
+  luce_bagno_camera_1_energy_day:
+    source: sensor.luce_bagno_camera_1_kWh
+    cycle: daily  
+  luce_bagno_camera_2_energy_day:
+    source: sensor.luce_bagno_camera_2_kWh
+    cycle: daily       
+  luce_cameretta_energy_day:
+    source: sensor.luce_cameretta_kWh
+    cycle: daily 
+  luce_bagno_energy_day:
+    source: sensor.luce_bagno_kWh
+    cycle: daily     
+  led_ambiente_soggiorno_energy_day:
+    source: sensor.led_ambiente_soggiorno_kWh
+    cycle: daily   
+    
+  luce_bagno_camera_1_energy_mth:
+    source: sensor.luce_bagno_camera_1_kWh
+    cycle: monthly  
+  luce_bagno_camera_2_energy_mth:
+    source: sensor.luce_bagno_camera_2_kWh
+    cycle: monthly       
+  luce_cameretta_energy_mth:
+    source: sensor.luce_cameretta_kWh
+    cycle: monthly 
+  luce_bagno_energy_mth:
+    source: sensor.luce_bagno_kWh
+    cycle: monthly     
+  led_ambiente_soggiorno_energy_mth:
+    source: sensor.led_ambiente_soggiorno_kWh
+    cycle: monthly   
+   
+#########################################################################################
+# 
+# Template - light - ENERGY/MONTH
+# 
+#########################################################################################
+  
+  faretti_ingresso_energy_day:
+    source: sensor.faretti_ingresso_kWh
+    cycle: daily  
+  faretti_soggiorno_energy_day:
+    source: sensor.faretti_soggiorno_kWh
+    cycle: daily       
+  luce_zona_notte_energy_day:
+    source: sensor.luce_zona_notte_kWh
+    cycle: daily 
+  lampada_studio_energy_day:
+    source: sensor.lampada_studio_kWh
+    cycle: daily     
+  lampada_divano_energy_day:
+    source: sensor.lampada_divano_kWh
+    cycle: daily  
+  luce_nuvoletta_energy_day:
+    source: sensor.luce_nuvoletta_kWh
+    cycle: daily       
+    
+  faretti_ingresso_energy_mth:
+    source: sensor.faretti_ingresso_kWh
+    cycle: monthly  
+  faretti_soggiorno_energy_mth:
+    source: sensor.faretti_soggiorno_kWh
+    cycle: monthly       
+  luce_zona_notte_energy_mth:
+    source: sensor.luce_zona_notte_kWh
+    cycle: monthly 
+  lampada_studio_energy_mth:
+    source: sensor.lampada_studio_kWh
+    cycle: monthly     
+  lampada_divano_energy_mth:
+    source: sensor.lampada_divano_kWh
+    cycle: monthly  
+  luce_nuvoletta_energy_mth:
+    source: sensor.luce_nuvoletta_kWh
+    cycle: monthly       
+
+
+
+#########################################################################################
+#
+# Totali per tipologia
+#
+#########################################################################################
+
+  #hour
+  luci_total_energy_hour:
+    source: sensor.luci_total_kWh
+    cycle: hourly 
+  tapp_total_energy_hour:
+    source: sensor.tapp_total_kWh
+    cycle: hourly 
+  total_energy_hour:
+    source: sensor.total_kWh
+    cycle: hourly   
+  #day
+  luci_total_energy_day:
+    source: sensor.luci_total_kWh
+    cycle: daily 
+  tapp_total_energy_day:
+    source: sensor.tapp_total_kWh
+    cycle: daily 
+  
+  # spostato nel package dei consumi
+  # total_energy_day:
+    # source: sensor.total_kWh
+    # cycle: daily 
+    
+  # mth
+  luci_total_energy_mth:
+    source: sensor.luci_total_kWh
+    cycle: monthly 
+  tapp_total_energy_mth:
+    source: sensor.tapp_total_kWh
+    cycle: monthly 
+  
+  # spostato nel package dei consumi
+  # total_energy_mth:
+    # source: sensor.total_kWh
+    # cycle: monthly  
+
+    
+#########################################################################################
+# 
+# Plug - ENERGY/MONTH
+# 
+#########################################################################################
+  
+  plug_s_energy_hour:
+    source: sensor.plug_s_kWh
+    cycle: hourly 
+  plug_s_energy_day:
+    source: sensor.plug_s_kWh
+    cycle: daily  
+  plug_s_energy_mth:
+    source: sensor.plug_s_kWh
+    cycle: monthly       

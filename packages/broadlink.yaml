@@ -1,0 +1,83 @@
+homeassistant:
+  customize:
+    # script.learn_tv_commands:
+      # icon: mdi:remote-tv
+      # name: Attiva Accoppiamento
+    switch.broadlink:
+      name: RM-Mini Cucina
+    switch.broadlink_2:
+      name: RM-Mini Soggiorno      
+
+# remote:
+  # - platform: broadlink
+    # host: 192.168.1.120
+    # mac: 78:0F:77:D9:2A:6D
+  # - platform: broadlink
+    # host: 192.168.1.121
+    # mac: 78:0F:77:00:7F:9E
+    
+# input_text:
+  # name_device:
+    # name: Nome Dispositivo
+    # mode: text
+    # icon: mdi:audio-video
+  # name_command:
+    # name: Nome Commando
+    # mode: text
+    # icon: mdi:remote
+
+script:
+  # learn_remote_commands:
+    # sequence:
+      # - service: remote.learn_command
+        # data:
+          # entity_id: remote.broadlink_2
+          # device: TV
+          # alternative: true
+          # timeout: 30
+          # command:
+          # - '{{ states("input_text.name_command") }}'
+  tv_cucina_accendi:
+    sequence:
+      - service: broadlink.send
+        data:
+          host: 192.168.1.120
+          packet: 'JgBYAFobERsQDREMERojDBEMEQ0QDRANEA0RDBEMEQ0QDRANEA0dDxAbEQ0QAArJWxoRGxEMEQwRGyMLEQ0QDRANEQwRDBEMEQ0QDRANEA0RDB0PERsQDRAADQU='
+  tv_cucina_spegni:
+    sequence:
+      - service: broadlink.send
+        data:
+          host: 192.168.1.120
+          packet: 'JgBYAFobERsQDREMERojDBEMEQ0QDRANEA0RDBEMEQ0QDRANEA0dDxAbEQ0QAArJWxoRGxEMEQwRGyMLEQ0QDRANEQwRDBEMEQ0QDRANEA0RDB0PERsQDRAADQU='
+  tv_cucina_abbassa_vol:
+    sequence:
+      - service: broadlink.send
+        data:
+          host: 192.168.1.120
+          packet: 'jXt4OY17eDnE7u4o+mFlGAAAAAAAAAAAAAAAAA=='
+  tv_cucina_alza_vol:
+    sequence:
+      - service: broadlink.send
+        data:
+          host: 192.168.1.120
+          packet: 'R1P01JokG5BW85WINYWllecoJE+PrMWncdUrGA==' 
+  tv_cucina_xxx:  
+    sequence:
+      - service: broadlink.send
+        data:
+          host: 192.168.1.120
+          packet: 'AAAAAAAAAAAAAAAA'   
+
+#
+## Broadlink RM-Mini definiti come switch
+#        
+switch:
+  - platform: broadlink
+    host: 192.168.1.120
+    mac: 78:0F:77:D9:2A:6D
+    timeout: 15
+  - platform: broadlink
+    host: 192.168.1.121
+    mac: 78:0F:77:00:7F:9E
+    timeout: 15    
+    

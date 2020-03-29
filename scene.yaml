@@ -1,0 +1,212 @@
+- name: tapp_chiudi_principali
+  entities:
+    cover.finestra_cucina:
+      state: closed
+      current_position: 0
+    cover.balcone_cucina:
+      state: closed
+      current_position: 0      
+    cover.balcone_studio:
+      state: closed
+      current_position: 0     
+
+- name: tapp_apri_principali
+  entities:
+    cover.finestra_cucina:
+      state: open
+      current_position: 100
+    cover.balcone_cucina:
+      state: open
+      current_position: 100      
+    cover.balcone_studio:
+      state: open
+      current_position: 100     
+
+- name: tapp_mattino
+  entities:      
+    cover.finestra_cucina:
+      state: open
+      current_position: 80    
+    cover.balcone_cucina:
+      state: open
+      current_position: 80   
+    cover.finestra_cameretta:
+      state: open
+      current_position: 80 
+    cover.finestra_bagno:
+      state: open
+      current_position: 60 
+    cover.finestra_soggiorno_esterno:
+      state: open
+      current_position: 60
+    cover.balcone_soggiorno:
+      state: open
+      current_position: 60      
+    cover.finestra_soggiorno_cortile:
+      state: open
+      current_position: 60      
+    cover.finestra_bagno_camera:
+      state: open
+      current_position: 60   
+    cover.finestra_camera:
+      state: open
+      current_position: 60       
+      
+- name: tapp_pomeriggio
+  entities:       
+    cover.finestra_cameretta:
+      state: open
+      current_position: 50       
+
+- name: tapp_tramonto
+  entities:       
+    cover.finestra_cameretta:
+      state: open
+      current_position: 20 
+    cover.finestra_bagno:
+      state: open
+      current_position: 20 
+    cover.finestra_soggiorno_esterno:
+      state: open
+      current_position: 20
+    cover.balcone_soggiorno:
+      state: open
+      current_position: 20      
+    cover.finestra_soggiorno_cortile:
+      state: open
+      current_position: 20      
+    cover.finestra_bagno_camera:
+      state: open
+      current_position: 20   
+    cover.finestra_camera:
+      state: open
+      current_position: 20         
+     
+- name: tapp_notte
+  entities:
+    cover.finestra_cucina:
+      state: closed
+      current_position: 0    
+    cover.balcone_cucina:
+      state: closed
+      current_position: 0       
+    cover.balcone_studio:
+      state: closed
+      current_position: 0
+    cover.finestra_cameretta:
+      state: open
+      current_position: 10 
+    cover.finestra_bagno:
+      state: open
+      current_position: 10 
+    cover.finestra_soggiorno_esterno:
+      state: open
+      current_position: 10
+    cover.balcone_soggiorno:
+      state: open
+      current_position: 10      
+    cover.finestra_soggiorno_cortile:
+      state: open
+      current_position: 10      
+    cover.finestra_bagno_camera:
+      state: open
+      current_position: 15   
+    cover.finestra_camera:
+      state: open
+      current_position: 15      
+
+
+- name: clima_spegni_tutti
+  entities:
+    climate.cucina:
+      state: 'off'      
+    climate.cucinotto:
+      state: 'off'      
+    climate.studio:
+      state: 'off'  
+    climate.cameretta:
+      state: 'off'      
+    climate.bagno:
+      state: 'off' 
+    climate.zona_notte:
+      state: 'off'          
+    climate.soggiorno:
+      state: 'off'      
+    climate.soggiorno_divano:
+      state: 'off'  
+    climate.camera:
+      state: 'off'      
+    climate.camera_bagno:
+      state: 'off'  
+    climate.ingresso:
+      state: 'off'      
+
+- name: clima_auto_tutti
+  entities:
+    climate.cucina:
+      state: auto      
+    climate.cucinotto:
+      state: auto       
+    climate.studio:
+      state: auto  
+    climate.cameretta:
+      state: auto      
+    climate.bagno:
+      state: auto 
+    climate.zona_notte:
+      state: auto       
+    climate.soggiorno:
+      state: auto      
+    climate.soggiorno_divano:
+      state: auto  
+    climate.camera:
+      state: auto      
+    climate.camera_bagno:
+      state: auto  
+    climate.ingresso:
+      state: auto      
+
+- name: clima_boost_tutti
+  entities:
+    climate.cucina:
+      state: heat
+      temperature: 25      
+    climate.cucinotto:
+      state: heat
+      temperature: 25       
+    climate.studio:
+      state: heat
+      temperature: 25  
+    climate.cameretta:
+      state: heat
+      temperature: 25      
+    climate.bagno:
+      state: heat
+      temperature: 25 
+    climate.zona_notte:
+      state: heat
+      temperature: 25       
+    climate.soggiorno:
+      state: heat
+      temperature: 25      
+    climate.soggiorno_divano:
+      state: heat
+      temperature: 25  
+    climate.camera:
+      state: heat
+      temperature: 25      
+    climate.camera_bagno:
+      state: heat
+      temperature: 25  
+    climate.ingresso:
+      state: heat
+      temperature: 25    
+
+
+
+
+
+
+
+
+      
