@@ -2,7 +2,7 @@
   # # Xiaomi
   # #########################################################################################
   
-    sensor.temperature_158d0002288471:
+    sensor.temperature_xxxxxxxxxxxxxx:
       friendly_name: T Studio
     sensor.temperature_158d00022725fa: 
       friendly_name: T Bagno
@@ -10,7 +10,7 @@
       friendly_name: T Cucina
     sensor.temperature_158d000224cd0d:
       friendly_name: T Cameretta
-    sensor.humidity_158d0002288471:
+    sensor.humidity_xxxxxxxxxxxxxx:
       friendly_name: Umid studio
     sensor.humidity_158d00022725fa: 
       friendly_name: Umid bagno
@@ -21,9 +21,9 @@
 
     binary_sensor.door_window_sensor_158d00042e771d:
       friendly_name: Finestra Camera
-    binary_sensor.door_window_sensor_158d0002d70751:
+    binary_sensor.door_window_sensor_bbbbbbbbbbbbbb:
       friendly_name: Finestra Cameretta
-    binary_sensor.door_window_sensor_158d0002d70614:
+    binary_sensor.door_window_sensor_aaaaaaaaaaaaaa:
       friendly_name: Armadio Ingresso      
 
   # #########################################################################################

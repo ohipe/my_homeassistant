@@ -1,50 +1,50 @@
     
   - platform: mqtt
     name: Luce_cameretta
-    state_topic: shellies/shellyswitch25-73C6FE/relay/1
-    command_topic: shellies/shellyswitch25-73C6FE/relay/1/command
+    state_topic: shellies/shellyswitch25-XXXXXX/relay/1
+    command_topic: shellies/shellyswitch25-XXXXXX/relay/1/command
     payload_on: "on"
     payload_off: "off"
 
   - platform: mqtt
     name: Luce_bagno
-    state_topic: shellies/shellyswitch25-73C6FE/relay/0
-    command_topic: shellies/shellyswitch25-73C6FE/relay/0/command
+    state_topic: shellies/shellyswitch25-XXXXXX/relay/0
+    command_topic: shellies/shellyswitch25-XXXXXX/relay/0/command
     payload_on: "on"
     payload_off: "off"
 
   - platform: mqtt
     name: Faretti_ingresso
-    state_topic: shellies/shelly1-22F98C/relay/0
-    command_topic: shellies/shelly1-22F98C/relay/0/command
+    state_topic: shellies/shelly1-XXXXXX/relay/0
+    command_topic: shellies/shelly1-XXXXXX/relay/0/command
     payload_on: "on"
     payload_off: "off"
     
   - platform: mqtt
     name: Faretti_soggiorno
-    state_topic: shellies/shelly1-93A26C/relay/0
-    command_topic: shellies/shelly1-93A26C/relay/0/command
+    state_topic: shellies/shelly1-XXXXXX/relay/0
+    command_topic: shellies/shelly1-XXXXXX/relay/0/command
     payload_on: "on"
     payload_off: "off"    
 
   - platform: mqtt
     name: Bagno_Camera_1
-    state_topic: shellies/shellyswitch25-7405BA/relay/1
-    command_topic: shellies/shellyswitch25-7405BA/relay/1/command
+    state_topic: shellies/shellyswitch25-XXXXXX/relay/1
+    command_topic: shellies/shellyswitch25-XXXXXX/relay/1/command
     payload_on: "on"
     payload_off: "off"   
 
   - platform: mqtt
     name: Bagno_Camera_2
-    state_topic: shellies/shellyswitch25-7405BA/relay/0
-    command_topic: shellies/shellyswitch25-7405BA/relay/0/command
+    state_topic: shellies/shellyswitch25-XXXXXX/relay/0
+    command_topic: shellies/shellyswitch25-XXXXXX/relay/0/command
     payload_on: "on"
     payload_off: "off"   
     
   - platform: mqtt
     name: Luce_zona_notte
-    state_topic: shellies/shelly1-24D904/relay/0
-    command_topic: shellies/shelly1-24D904/relay/0/command
+    state_topic: shellies/shelly1-XXXXXX/relay/0
+    command_topic: shellies/shelly1-XXXXXX/relay/0/command
     payload_on: "on"
     payload_off: "off"
 
@@ -61,20 +61,20 @@
     name: Lampada_Divano
     host: 192.168.1.166
     model: philips.light.candle2 
-    token: 2f1c18b3fb46506fbbcd09f43fb64926
+    token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
   - platform: xiaomi_miio
     name: Luce_Nuvoletta
     host: 192.168.1.160
     model: philips.light.candle2 
-    token: c742697bfc68deb1cc63b7f22eb037f1
+    token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
   # led soppalco
   - platform: mqtt
     schema: template
     name: led_ambiente_soggiorno
-    command_topic: shellies/shellyrgbw2-B08AB3/color/0/set
-    state_topic: shellies/shellyrgbw2-B08AB3/color/0/status
+    command_topic: shellies/shellyrgbw2-XXXXXX/color/0/set
+    state_topic: shellies/shellyrgbw2-XXXXXX/color/0/status
     effect_list:
       - 0
       - 1

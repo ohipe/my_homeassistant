@@ -7,22 +7,4 @@
   #- platform: androidtv
   #  name: MIBOX3
   #  host: 192.168.1.143
-  
-  # - platform: cast
-    # name: MIBOX3
-    # host: 192.168.1.141
-  # - platform: cast
-    # name: MIBOX3
-    # host: 192.168.1.142
-  # - platform: cast
-    # name: MIBOX3
-    # host: 192.168.1.143
-  # - platform: cast
-    # name: MIBOX3
-    # host: 192.168.1.144
-  # - platform: cast
-    # name: MIBOX3
-    # host: 192.168.1.145
-  # - platform: cast
-    # name: MIBOX3
-    # host: 192.168.1.146
+
